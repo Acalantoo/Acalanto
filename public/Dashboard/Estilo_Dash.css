@@ -271,8 +271,8 @@ li a {
 
 .form{
     display: flex;
-    height: 570px;
-    width: 50%;
+    height: 1000px;
+    width: 60%;
     border: 5px solid #3a3383;
     margin-top: 30px;
     border-radius: 40px;
@@ -290,7 +290,7 @@ li a {
 }
 
 .form .list_form{
-    height: 80%;
+    height: 88%;
     width: 80%;
 }
 
@@ -298,13 +298,14 @@ li a {
     font-family: Bahnschrift;
     background-color: #6c5eff;
     color: white;
-    height: 12%;
+    height: 10%;
     width: 30%;
     font-size: 19px;
     border-radius: 15px;
     border: 0;
     cursor: pointer;
     border: 5px solid white;
+    margin-bottom: 10px;
 }
  input {
     width: 99%;
@@ -317,3 +318,11 @@ li a {
     font-size: 16px;
     background-color:#6c5eff;
 }
+select{
+    border-radius: 5px;
+    height: 35px;
+    background-color: rgb(200, 214, 214);
+}
+
+
+/* PAGINA RELATORIO */
