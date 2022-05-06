@@ -243,7 +243,7 @@ li a {
     display: flex;
     flex-direction: column;
     /* border: 2px solid firebrick; */
-    height: 800px;
+    height: 400px;
     width: 1000px;
     align-items: center;
 }
@@ -254,6 +254,7 @@ li a {
     width:  100%;
     background-color: white;
     justify-content: space-between;
+    margin-bottom: 55px;
 
 }
 
