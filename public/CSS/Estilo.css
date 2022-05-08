@@ -342,6 +342,13 @@ h1 a {
 
 /* Comeco Do login e cadastro*/
 
+.aviso{
+    font-family: Bahnschrift;
+    color: rgb(214, 78, 78);
+    font-size: 20px;
+    font-weight: lighter;
+}
+
 .container .card_foto {
     display: flex;
     height: 90%;
