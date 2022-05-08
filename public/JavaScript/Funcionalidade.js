@@ -49,66 +49,6 @@ function simular_prejuizo() {
 
 /* Funções da página de cadastro */
 
-function solicitar_cadastro() {
-    var nomeEmpresa = input_cadastro_empresa.value
-    var CNPJ = input_cadastro_cnpj.value;
-    var logradouro = input_cadastro_logradouro.value;
-    var bairro = input_cadastro_bairro.value;
-    var cep = input_cadastro_cep.value;
-    var cidade = input_cadastro_cidade.value;
-    var complemento = input_cadastro_complemento.value;
-    var telefone = input_cadastro_telefone.value;
-
-    var nomeUsuario = input_usuario_nome.value;
-    var email = input_usuario_email.value;
-    var senha = input_usuario_senha.value;
-    var confirmarSenha = input_usuario_confirmar_senha.value;
-
-    if (nomeEmpresa == "" || CNPJ == "" || logradouro == "" || bairro == "" || cep == "" || cidade == "" ||
-        complemento == "" || telefone == "" || nomeUsuario == "" || email == "" || 
-        senha == "" || confirmarSenha == "") {
-        alert("Preencha todos os campos para prosseguir!");
-    }
-    else if(nomeEmpresa.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(CNPJ.length > 18 || CNPJ.length < 14){
-        alert('CNPJ inválido!')
-    }
-    else if(logradouro.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(bairro.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(cep.length > 9 || cep.length < 8){
-        alert('CEP inválido!')
-    }
-    else if(cidade.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(complemento.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(telefone.length > 14 || telefone.length < 8){
-        alert('Número de telefone inválido!')
-    }
-    else if(nomeUsuario.length > 90){
-        alert('Limite de 90 caracteres excedido!')
-    }
-    else if(email.indexOf('@') <= 0 || email.indexOf('.com') == -1){
-        alert('Email inválido!')
-    }
-    else if(confirmarSenha != senha){
-        alert('As senhas não estão iguais!')
-    }
-    else{
-        div_botoes.innerHTML = `
-        <button class = "btn_Solicitar" onclick = "enviar_solicitacao()" 
-        type = "submit"> Confirmar solicitação </button>`;
-    }
-}
-
 function enviar_solicitacao(){
     window.onbeforeunload = () => {
         for(const form of document.getElementsByTagName('form')) {
@@ -119,4 +59,25 @@ function enviar_solicitacao(){
 
 /* Término das funções da página cadastro */
 
-/* Funções da página contato */
+/* Funções de sessão */
+
+function validarSessao() {
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+    var empresa = sessionStorage.FK_EMPRESA;
+
+    if (email != null && nome != null && idUsuario != null && empresa != null) {
+        window.alert(`Seja bem-vindo, ${nome}!`);
+    } else {
+        window.location = "../Login.html";
+    }
+}
+
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../Login.html";
+}
+
+/* Término das funções de sessão */

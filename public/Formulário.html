@@ -98,8 +98,8 @@
         var complementoEmpresa = input_cadastro_complemento.value;
         var telefoneEmpresa = input_cadastro_telefone.value;
 
-        if (nomeEmpresa == "" || cnpjEmpresa == "" || logradouroEmpresa == "" || bairroEmpresa == "" || 
-        cepEmpresa == "" || cidadeEmpresa == "" || complementoEmpresa == "" || telefoneEmpresa == "") {
+        if (nomeEmpresa == "" || cnpjEmpresa == "" || logradouroEmpresa == "" || bairroEmpresa == "" ||
+            cepEmpresa == "" || cidadeEmpresa == "" || complementoEmpresa == "" || telefoneEmpresa == "") {
             alert("Preencha todos os campos para prosseguir!");
         }
         else if (nomeEmpresa.length > 90) {
@@ -171,7 +171,7 @@
         // Agora vá para o método fetch logo abaixo
         var nomeUsuario = input_usuario_nome.value;
         var sobrenomeUsuario = input_usuario_sobrenome.value;
-        var emailUsuario = input_usuario_email.value;
+        var emailUsuario = input_usuario_email.value.toLowerCase();
         var senhaUsuario = input_usuario_senha.value;
         var confirmarSenha = input_usuario_confirmar_senha.value;
         var empresaUsuario = Number(input_usuario_empresa.value);
@@ -192,37 +192,37 @@
         else if (confirmarSenha != senhaUsuario) {
             alert('As senhas não estão iguais!')
         }
+        else {
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrarUsuario", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeUsuarioServer: nomeUsuario,
-                sobrenomeUsuarioServer: sobrenomeUsuario,
-                emailUsuarioServer: emailUsuario,
-                senhaUsuarioServer: senhaUsuario,
-                empresaUsuarioServer: empresaUsuario
-            })
-        }
-        ).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                alert('cadastro realizado');
-            } else {
-                alert('Não foi possível realizar cadastro, o email atual já está cadastrado!');
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrarUsuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeUsuarioServer: nomeUsuario,
+                    sobrenomeUsuarioServer: sobrenomeUsuario,
+                    emailUsuarioServer: emailUsuario,
+                    senhaUsuarioServer: senhaUsuario,
+                    empresaUsuarioServer: empresaUsuario
+                })
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+            ).then(function (resposta) {
 
-        return false;
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert('cadastro realizado');
+                } else {
+                    alert('Não foi possível realizar cadastro, o email atual já está cadastrado!');
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
     }
 </script>

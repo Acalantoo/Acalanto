@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="Estilo_Dash.css">
+    <script src="../JavaScript/Funcionalidade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
     
 </head>
-<body>
+<body onload="validarSessao()">
    <!-- HEADER -->
   <div class="header">
     <div class="container">
@@ -33,11 +34,8 @@
         <li><a href="NovoUsuario.html">Novo Usuario</a></li>
         <li><a href="Relatorio.html">Relatorio</a></li>
         <li><a href="graficos.html">Graficos</a></li>
-        <li><a href="../Login.html">Sair</a></li>
-
-        
       </ul>
-      
+      <button onclick="limparSessao()">Sair</button>
     </div>
   </div>
   <!-- ALERTAS -->

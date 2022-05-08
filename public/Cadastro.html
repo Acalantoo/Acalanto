@@ -45,7 +45,7 @@
                     <form action="https://formspree.io/f/xzbojjgn" method="POST" id="div_label_cadastro" class="label">
                         <label> Empresa </label>
                         <h4> Nome da Empresa: </h4>
-                        <input name="NomeEmpresa" type="text" id="input_cadastro_empresa">
+                        <input onkeyup="validacao_solicitar_cadastro()" name="NomeEmpresa" type="text" id="input_cadastro_empresa">
                         <h4> CNPJ: </h4>
                         <input name="CNPJ" type="text" id="input_cadastro_cnpj">
                         <label> Endereço </label>
@@ -123,3 +123,65 @@
 </body>
 
 </html>
+
+<script>
+    function solicitar_cadastro() {
+    var nomeEmpresa = input_cadastro_empresa.value
+    var CNPJ = input_cadastro_cnpj.value;
+    var logradouro = input_cadastro_logradouro.value;
+    var bairro = input_cadastro_bairro.value;
+    var cep = input_cadastro_cep.value;
+    var cidade = input_cadastro_cidade.value;
+    var complemento = input_cadastro_complemento.value;
+    var telefone = input_cadastro_telefone.value;
+
+    var nomeUsuario = input_usuario_nome.value;
+    var email = input_usuario_email.value.toLowerCase();
+    var senha = input_usuario_senha.value;
+    var confirmarSenha = input_usuario_confirmar_senha.value;
+
+    if (nomeEmpresa == "" || CNPJ == "" || logradouro == "" || bairro == "" || cep == "" || cidade == "" ||
+        complemento == "" || telefone == "" || nomeUsuario == "" || email == "" || 
+        senha == "" || confirmarSenha == "") {
+        alert("Preencha todos os campos para prosseguir!");
+    }
+    else if(nomeEmpresa.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(CNPJ.length > 18 || CNPJ.length < 14){
+        alert('CNPJ inválido!')
+    }
+    else if(logradouro.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(bairro.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(cep.length > 9 || cep.length < 8){
+        alert('CEP inválido!')
+    }
+    else if(cidade.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(complemento.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(telefone.length > 14 || telefone.length < 8){
+        alert('Número de telefone inválido!')
+    }
+    else if(nomeUsuario.length > 90){
+        alert('Limite de 90 caracteres excedido!')
+    }
+    else if(email.indexOf('@') <= 0 || email.indexOf('.com') == -1){
+        alert('Email inválido!')
+    }
+    else if(confirmarSenha != senha){
+        alert('As senhas não estão iguais!')
+    }
+    else{
+        div_botoes.innerHTML = `
+        <button class = "btn_Solicitar" onclick = "enviar_solicitacao()" 
+        type = "submit"> Confirmar solicitação </button>`;
+    }
+}
+</script>

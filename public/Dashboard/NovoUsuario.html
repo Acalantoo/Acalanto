@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="Estilo_Dash.css">
+    <script src="../JavaScript/Funcionalidade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
 
     <div class="header">
         <div class="container">
@@ -34,33 +35,95 @@
                 <li><a href="NovoUsuario.html">Novo Usuario</a></li>
                 <li><a href="Relatorio.html">Relatorio</a></li>
                 <li><a href="graficos.html">Graficos</a></li>
-                <li><a href="../Login.html">Sair</a></li>
-
-
             </ul>
+            <button onclick="limparSessao()">Sair</button>
         </div>
     </div>
-    
+
     <div class="banner">
-        <div class="container" >
-                <div class="form" style="height: 550px;">
-                    
-                    <label class="list_form">  
-                           <h2> Novo Usuario </h2>
-                           <h4> Nome: </h4>
-                           <input name="name" id="input" type="text">
-                           <h4> Email: </h4>
-                           <input name="name" id="input" type="text">
-                           <h4> Senha: </h4>
-                           <input name="name" id="input" type="text">
-                           <h4> Confirmar Senha: </h4>
-                           <input name="name" id="input" type="text">
-                       </label>
-                       <button class="btn"> Cadastre-se  </button>
-                </div>
+        <div class="container">
+            <div class="form" style="height: 600px;">
+
+                <label class="list_form">
+                    <h2> Novo Usuario </h2>
+                    <h4> Nome: </h4>
+                    <input id="input_nome_novoUsuario" type="text">
+                    <h4> Sobrenome: </h4>
+                    <input id="input_sobrenome_novoUsuario" type="text">
+                    <h4> Email: </h4>
+                    <input id="input_email_novoUsuario" type="text">
+                    <h4> Senha: </h4>
+                    <input id="input_senha_novoUsuario" type="password">
+                    <h4> Confirmar Senha: </h4>
+                    <input id="input_confirmar_senha_novoUsuario" type="password">
+                </label>
+                <button onclick="cadastrarUsuarioNovoUsuario()" class="btn"> Cadastre-se </button>
+            </div>
         </div>
     </div>
 
 </body>
 
 </html>
+<script>
+    function cadastrarUsuarioNovoUsuario() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeUsuario = input_nome_novoUsuario.value;
+        var sobrenomeUsuario = input_sobrenome_novoUsuario.value;
+        var emailUsuario = input_email_novoUsuario.value.toLowerCase();
+        var senhaUsuario = input_senha_novoUsuario.value;
+        var confirmarSenha = input_confirmar_senha_novoUsuario.value;
+        var fkEmpresa = sessionStorage.FK_EMPRESA;
+
+        if (nomeUsuario == "" || sobrenomeUsuario == "" || emailUsuario == "" ||
+            senhaUsuario == "" || confirmarSenha == "") {
+            alert("Preencha todos os campos para prosseguir!");
+        }
+        else if (nomeUsuario.length > 90) {
+            alert('Limite de 90 caracteres excedido!')
+        }
+        else if (sobrenomeUsuario.length > 90) {
+            alert('Limite de 90 caracteres excedido!')
+        }
+        else if (emailUsuario.indexOf('@') <= 0 || emailUsuario.indexOf('.com') == -1) {
+            alert('Email inválido!')
+        }
+        else if (confirmarSenha != senhaUsuario) {
+            alert('As senhas não estão iguais!')
+        }
+        else {
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrarUsuarioNovoUsuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeUsuarioServer: nomeUsuario,
+                    sobrenomeUsuarioServer: sobrenomeUsuario,
+                    emailUsuarioServer: emailUsuario,
+                    senhaUsuarioServer: senhaUsuario,
+                    empresaUsuarioServer: fkEmpresa
+                })
+            }
+            ).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert('cadastro realizado');
+                } else {
+                    alert('Não foi possível realizar cadastro, o email atual já está cadastrado!');
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
+    }
+</script>
