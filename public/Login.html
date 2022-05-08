@@ -50,8 +50,14 @@
                 <div class="label">
                     <h4> Email: </h4>
                     <input id="input_email" type="text">
+                    <div class="aviso" id="aviso1"></div>
+
                     <h4> Senha: </h4>
                     <input id="input_senha" type="password">
+                    <div class="aviso" id="aviso2"></div><br><br>
+
+                    <div class="aviso" id="aviso3"></div>
+
                 </div>
 
                 <div class="botoes">
@@ -112,12 +118,12 @@
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (emailVar == "" || senhaVar == "") {
-            alert("Preencha todos os campos para prosseguir!");
+            aviso1.innerHTML = "Preencha todos os campos para prosseguir!";
             return false;
         }
 
         else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            aviso2.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
             return false;
         }
 
@@ -156,7 +162,7 @@
                 });
 
             } else {
-                alert("Usuário ou senha incorretos");
+                aviso3.innerHTML = "Usuário ou senha incorretos";
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
