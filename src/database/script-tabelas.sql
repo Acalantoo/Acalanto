@@ -235,3 +235,85 @@ join refrigerador on idUsuario = fkUsuario
 join sensor on idRefrigerador = fkRefrigerador 
 join registros on idSensor = fkSensor
 join relatorio_diario on relatorio_diario.fkUsuario = Usuario.idUsuario;
+
+/*********************************************************************************************/
+/*Nuvem*/
+
+  insert into empresa (nomeEmpresa, CNPJ, CEP, estado, cidade, bairro, logradouro, complemento, telefone_fixo) values
+	('Hospital Israelita Albert Einstein', '123456789012345', '123456759', 'SP', 'São Paulo', 'Vila Mascote', 'Rua benedito de Sá', '53', '11 2338-5616'),
+	('Hospital Cruz Azul', '122476787015841', '123456789', 'SP', 'São Paulo', 'Cambuci', 'Av. Lins de Vasconcelos', '356', '11 94828-6398'),
+	('Hospital Santa Magiore', '123456254912435', '123456789', 'SP', 'São Paulo', 'Brás', 'Rua dos Lavapés','1005', '11 94431-8963'),
+	('Hospital Cema', '123445318812388', '456379289', 'SP', 'São Paulo', 'Belém', 'Rua Padre Adelino','28', '11 97895-2536'),
+  ('Hospital Chácara Cruzeiro do Sul', '432156789054321', '359127822', 'SP', 'São Paulo', 'Cangaíba', 'AV. Governador Carvalho Pinto','1520', '11 92566-8871');
+
+  insert into usuario values
+	(null, "Alberto", "Einstein", "alberto@gmail.com", "123456", 1),
+	(null, "Julho", "Einstein", "junior@gmail.com", "654321", 1),
+	(null, "Ramiro", "Einstein", "ramiro@gmail.com", "246810", 1),
+	(null, "Murillo", "Borba", "murillo@gmail.com", "15499248459", 3),
+	(null, "Joao", "Santos", "joao@gmail.com", "6262432254845", 4);
+
+  insert into refrigerador (marcaRefrigerador, tipoRefrigerador, temperaturaIdeal, localizacao, fkUsuario, fkEmpresa) values
+	('Electrolux', 'Duplex', '-18', 'Refrigerador Albert Einstein', 1, 1),
+	('Frost free Brastemp', 'Inverse', '-19', 'Refrigerador Santa Maggiore', 1, 1),
+	('Cycle defrost Brastemp', 'Side by Side', '-20', 'Refrigerador Cema', 1, 1),
+	('Cycle defrost Electrolux', 'French Door', '-16', 'Refrigerador Chácara Cruzeiro do Sul', 1, 1),
+	('Electrolux', 'Duplex', '-18', 'Refrigerador Albert Einstein', 2, 2),
+	('Frost free Brastemp', 'Inverse', '-18', 'Refrigerador Santa Maggiore', 2, 2),
+	('Cycle defrost Brastemp', 'Side by Side', '-20', 'Refrigerador Cema', 2, 2),
+	('Cycle defrost Electrolux', 'French Door', '-17', 'Refrigerador Chácara Cruzeiro do Sul', 2, 2),
+	('Electrolux', 'Duplex', '-18', 'Refrigerador Albert Einstein', 3, 3),
+	('Frost free Brastemp', 'Inverse', '-19', 'Refrigerador Santa Maggiore', 3, 3),
+	('Cycle defrost Brastemp', 'Side by Side', '-22', 'Refrigerador Cema', 3, 3),
+	('Cycle defrost Electrolux', 'French Door', '-15', 'Refrigerador Chácara Cruzeiro do Sul', 3, 3),
+	('Electrolux', 'Duplex', '-18', 'Refrigerador Albert Einstein', 4, 4),
+	('Frost free Brastemp', 'Inverse', '-24', 'Refrigerador Santa Maggiore', 4, 4),
+	('Cycle defrost Brastemp', 'Side by Side', '-21', 'Refrigerador Cema', 4, 4),
+	('Cycle defrost Electrolux', 'French Door', '-17', 'Refrigerador Chácara Cruzeiro do Sul', 4, 4);
+
+  insert into sensor (nomeSensor, tipoSensor, fkRefrigerador) values
+	('LM35', 'Temperatura', '1'),
+	('LM35', 'Temperatura', '2'),
+	('LM35', 'Temperatura', '3'),
+	('LM35', 'Temperatura', '4'),
+	('LM35', 'Temperatura', '5'),
+	('LM35', 'Temperatura', '6'),
+	('LM35', 'Temperatura', '7'),
+	('LM35', 'Temperatura', '8'),
+	('LM35', 'Temperatura', '9'),
+	('LM35', 'Temperatura', '10'),
+	('LM35', 'Temperatura', '11'),
+	('LM35', 'Temperatura', '12'),
+	('LM35', 'Temperatura', '13'),
+	('LM35', 'Temperatura', '14'),
+	('LM35', 'Temperatura', '15'),
+	('LM35', 'Temperatura', '16');
+
+  insert into registros (temperaturaAtual, fkSensor) values
+	('-18', 1),
+	('-17', 1),
+  ('-19', 1),
+  ('-16', 1),
+  ('-17', 2),
+  ('-19', 2),
+  ('-18', 2),
+  ('-20', 2),
+  ('-23', 3),
+  ('-18', 3),
+	('-20', 3),
+	('-21', 3),
+	('-18', 4),
+	('-18', 4),
+	('-18', 4),
+	('-19', 4),
+	('-21', 5),
+	('-22', 5),
+	('-24', 5),
+	('-26', 5);
+
+  insert into relatorio_diario (fkUsuario, fkRefrigerador, fkEmpresa, temperaturaMedia, totalLeite, leiteRecebido, leitePerdido, observacao) values 
+	(1, 1, 1, '-15°C', '100L', '20L', '10L', 'Recebemos 20L de leite hoje, eles permaneceram numa temperatura quase ideal. Perdemos 10L.'),
+  (2, 2, 2, '-18°C', '80L', '22L', '4L', 'Recebemos 22L de leite hoje, eles permaneceram numa temperatura ideal. Perdemos 4L.'),
+  (3, 3, 3, '-20°C', '90L', '15L', '10L', 'Recebemos 15L de leite hoje, eles permaneceram numa temperatura quase ideal. Perdemos 10L.'),
+  (4, 4, 4, '-10°C', '75L', '5L', '12L', 'Recebemos 5L de leite hoje, eles permaneceram numa temperatura nada ideal. Perdemos 12L.'),
+  (5, 5, 5, '-15°C', '105L', '2L', '7L', 'Recebemos 2L de leite hoje, eles permaneceram numa temperatura quase ideal. Perdemos 7L.');
