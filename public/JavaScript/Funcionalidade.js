@@ -69,7 +69,7 @@ function validarSessao() {
     var empresa = sessionStorage.FK_EMPRESA;
 
     if (email != null && nome != null && idUsuario != null && empresa != null) {
-        window.alert(`Seja bem-vindo, ${nome}!`);
+        perfil.innerHTML = `Olá, ${nome}`
     } else {
         window.location = "../Login.html";
     }
