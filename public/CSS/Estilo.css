@@ -464,9 +464,17 @@ b{
 
 /* Comeco Do login e cadastro*/
 
+.container .card_setinha_foto {
+    display: flex;
+    height: 11%;
+    width: 5%;
+    cursor: pointer;
+    position: absolute;
+}
+
 .container .card_foto {
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 50%;
 }
 
@@ -481,14 +489,14 @@ b{
 
 .container .card_login {
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 50%;
     flex-direction: column;
 }
 
 .container .card_cadastro {
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 50%;
     flex-direction: column;
 }
