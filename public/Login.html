@@ -45,13 +45,13 @@
                     <input id="input_senha" type="password">
                     <div class="aviso" id="aviso2"></div><br><br>
 
-                    <div class="aviso" id="aviso3"></div>
+                    <div class="aviso" id="div_aviso"></div>
 
                 </div>
 
                 <div class="botoes">
-                    <button onclick="entrar()" class="btn">Entrar</button>
-                    <button onclick="go_cadastro()" class="btn_cadastro">Cadastre-se</button>
+                    <button onclick="entrar()" class="btn_2">Entrar</button>
+                    <button onclick="go_cadastro()" class="btn">Cadastre-se</button>
                 </div>
 
             </div>
@@ -72,12 +72,12 @@
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (emailVar == "" || senhaVar == "") {
-            aviso1.innerHTML = "Preencha todos os campos para prosseguir!";
+            div_aviso.innerHTML = "Preencha todos os campos para prosseguir!";
             return false;
         }
 
         else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            aviso2.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            div_aviso.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
             return false;
         }
 
