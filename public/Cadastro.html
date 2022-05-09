@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="header">
+    <!-- <div class="header">
         <div class="container">
             <img onclick="go_index()" src="./img/Logo_Acalanto_icon.png">
             <h1><a href="Index.html">Acalanto</a></h1>
@@ -26,7 +26,7 @@
                 <button onclick="go_cadastro()" class="btn">Cadastre-se</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="banner">
         <div class="container">
@@ -98,14 +98,13 @@
                         <h4> Senha: </h4>
                         <input name="Senha" type="password" id="input_usuario_senha">
                         <h4> Confirmar Senha: </h4>
-                        <input name="SenhaConfirma" type="password" id="input_usuario_confirmar_senha">
-                        <div class="aviso" id="aviso11"></div><br><br>
+                        <input name="SenhaConfirma" type="password" id="input_usuario_confirmar_senha"><br><br>
 
-                        <div class="aviso" id="aviso12"></div>
+                        <div class="aviso" id="div_aviso"></div>
 
                         <div id="div_botoes" class="botoes">
-                            <button onclick="solicitar_cadastro()" type="button" class="btn_Solicitar">Solicitar cadastro</button>
-                            <button onclick="go_login()" type="button" class="btn_Entrar">Entrar</button>
+                            <button onclick="solicitar_cadastro()" type="button" class="btn_2">Solicitar cadastro</button> <br>
+                            <button onclick="go_login()" type="button" class="btn">Entrar</button>
                         </div>
                     </form>
             </div>
@@ -169,40 +168,40 @@
     if (nomeEmpresa == "" || CNPJ == "" || logradouro == "" || bairro == "" || cep == "" || cidade == "" ||
         complemento == "" || telefone == "" || nomeUsuario == "" || email == "" || 
         senha == "" || confirmarSenha == "") {
-        aviso12.innerHTML = "Preencha todos os campos para prosseguir!";
+        div_aviso.innerHTML = "Preencha todos os campos para prosseguir!";
     }
     else if(nomeEmpresa.length > 90){
-        aviso1.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(CNPJ.length > 18 || CNPJ.length < 14){
-        aviso2.innerHTML = 'CNPJ inválido!'
+        div_aviso.innerHTML = 'CNPJ inválido!'
     }
     else if(logradouro.length > 90){
-        aviso3.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(bairro.length > 90){
-        aviso4.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(cep.length > 9 || cep.length < 8){
-        aviso5.innerHTML = 'CEP inválido!'
+        div_aviso.innerHTML = 'CEP inválido!'
     }
     else if(cidade.length > 90){
-        aviso6.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(complemento.length > 90){
-        aviso7.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(telefone.length > 14 || telefone.length < 8){
-        aviso8.innerHTML = 'Número de telefone inválido!'
+        div_aviso.innerHTML = 'Número de telefone inválido!'
     }
     else if(nomeUsuario.length > 90){
-        aviso9.innerHTML = 'Limite de 90 caracteres excedido!'
+        div_aviso.innerHTML = 'Limite de 90 caracteres excedido!'
     }
     else if(email.indexOf('@') <= 0 || email.indexOf('.com') == -1){
-        aviso10.innerHTML = 'Email inválido!'
+        div_aviso.innerHTML = 'Email inválido!'
     }
     else if(confirmarSenha != senha){
-        aviso11.innerHTML = 'As senhas não estão iguais!'
+        div_aviso.innerHTML = 'As senhas não estão iguais!'
     }
     else{
         div_botoes.innerHTML = `
