@@ -62,17 +62,17 @@
                 <h2> Dashboard de Doações</h2>
                 <div class="grafico2">  
                     <div class="sub_grafico" style="width: 300px; height: 300px; margin-left: 50px;">
-                        <h3> Quantidade em litros na doação de leite Materno </h3>
+                        <h3> Quantidade de Doações </h3>
                         <canvas id="myChart3"></canvas>
                     </div> <!-- Fechando a div sub-rafico -->
                     <div class="sub_grafico"> 
-                        <h3> Chance de perda pela Temperatura </h3>
+                        <h3> Estoque de Leite Materno </h3>
                         <canvas id="myChart2"></canvas>
                     </div> <!-- Fechando a div sub-rafico -->
                 </div ><!-- Fechando a div grafico -->
                 <div class="sub_grafico" style="width: 500px; height: 500px; margin-left: 50px;"> 
                     <br>
-                    <h3> Desperdicio de Leite por Mês </h3>
+                    <h3> Quantidade de Desperdicio de Leite </h3>
                     <canvas id="myChart5"></canvas>
                 </div> <!-- Fechando a div sub-rafico -->
             </div ><!-- Fechando a div grafico -->
@@ -105,12 +105,7 @@
 
             label: 'Controle de Qualidade',
             backgroundColor: [ 
-            'green',
-            'green',
-            'yellow',
-            'yellow',
-            'red',
-            'red',
+            '#6c5eff',
             ],
             borderColor: '#3a3383 ',
             borderRadius: 10,
@@ -138,34 +133,42 @@ type: 'bar',
 };
     // Segundo Grafico
     const labels2 = [
-        '15%',
-        '8%',
-        '0%',
-        '10%',
-        '15%'
+      'Dia 12/05',
+      'Dia 13/05',
+      'Dia 14/05',
+      'Dia 15/05',
+      'Dia 16/05'
     ];
-    // 15, 8, 0 , 10, 15
 
     const data2 = {
         labels: labels2,
         datasets: [{
             label: [
-                "Risco por temperatura"
+                "Hospital 1"
                 ],
             backgroundColor: [
-                'red',
-                'yellow',
-                'green',
-                'yellow',
-                'red',
+                'purple',
             ],
             hoverBorderColor: 'black',
             hoverBorderWidth: 10,
-            data: [-28, -20,-18, -12,-8],
-        }
-        ]
+            data: [20, 35,30, 45,50],
+        },
+      {
+        label: 'Hospital 2',
+        backgroundColor: 'red',
+        // borderColor: 'black',
+        data:  [30, 32, 40, 48,53],
+      },
+      {
+        label: 'Hospital 3',
+        backgroundColor: 'blue',
+        // borderColor: 'black',
+        data:  [10, 25, 28, 32, 40],
+      }
+    
+    ]
     };
-
+  
 
     const config2 = {
 
@@ -198,11 +201,11 @@ type: 'bar',
         datasets: [{
             label: 'Valor na queda de doação',
             backgroundColor: [
-                'red',
-                'yellow',
-                'green',
-                'yellow',
-                'red'
+            '#da70d6',
+            '#6c5eff',
+            'purple',
+            '#cf70cf',
+            'pink',
             ],
             hoverOffset: 50,
             hoverBorderWidth: 8,
