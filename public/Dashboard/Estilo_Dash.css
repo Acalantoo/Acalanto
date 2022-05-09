@@ -39,16 +39,16 @@ h2 a {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 30vh;
-  width: 30vh;
+  height: 30%;
+  width: 70%;
   border-radius: 20px;
   background-color: #3a3383;
   list-style: none;
 }
 
 .header .container .card_perfil img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   background-color: white;
   border-radius: 90px;
   border: #6c5eff solid 10px;
@@ -81,18 +81,17 @@ li a {
   margin: 0;
   padding: 0%;
   display: flex;
-  justify-content: space-evenly;
   height: 100vh;
   width: 80%;
   float: right;
-  /* border: 2px solid aqua; */
+  background-color: #dbdbdb;
 }
 
 .refrigeradores {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 130vh;
+  width: 70%;
   height: 100vh;
 }
 
@@ -102,8 +101,8 @@ li a {
 }
 
 .card_refri {
-  height: 100px;
-  width: 350px;
+  height: 15%;
+  width: 17%;
   border-radius: 20px;
   padding: 0px 10px 20px 10px;
   background-color: #3a3383;
@@ -127,14 +126,8 @@ li a {
 
 .grafico {
   align-items: center;
-  background-color: #d8d8d8;
   height: 60vh;
   width: 150vh;
-}
-
-.grafico h2 {
-  color: #6c5eff;
-  font-family: clarendon Blk Bt Black;
 }
 
 .card_metricas {
@@ -142,13 +135,10 @@ li a {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 98vh;
-  width: 150px;
+  height: 90vh;
+  width: 10%;
   border-radius: 20px;
-  background-color: #3a3383;
-  font-family: Bahnschrift;
-  font-size: 20px;
-  color: white;
+  background-color: #6c5eff;
 }
 
 .numero {
@@ -160,13 +150,16 @@ li a {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100px;
-  width: 120px;
+  height: 16%;
+  width: 80%;
+  color: white;
+  font-family: Bahnschrift;
+  font-size: 13px;
   border-radius: 15px;
 }
 
 .I {
-  background-color: rgb(60, 86, 236);
+  background-color: rgb(50, 52, 163);
 }
 
 .II {
@@ -178,7 +171,7 @@ li a {
 }
 
 .IIII {
-  background-color: rgb(236, 224, 60);
+  background-color: rgb(238, 183, 30);
 }
 
 .IIIII {

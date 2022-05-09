@@ -10,7 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
   </head>
-  <body onload="validarSessao()">
+  <body>
+  <!-- <body onload="validarSessao()"> -->
     <div class="header">
       <div class="container">
         <div class="card_logo">
@@ -18,7 +19,7 @@
 
           <h2><a href="MeusRefrigeradores.html">Acalanto</a></h2>
         </div>
-
+      
         <div class="card_perfil">
           <img src="../img/Logo_Acalanto_icon.png" />
           <h4 id="perfil"></h4>
@@ -36,34 +37,33 @@
 
     <div class="banner">
       <div class="container">
+        
         <div class="refrigeradores">
+          
           <div class="card_refri">
             <p>Refrigerador 1</p>
             <div class="barra"></div>
-
             <div class="temperatura_atual">
               0°
-              <div class="bola"></div>
+              <span class="bola"></span>
             </div>
           </div>
 
           <div class="card_refri">
             <p>Refrigerador 2</p>
             <div class="barra"></div>
-
             <div class="temperatura_atual">
               0°
-              <div class="bola"></div>
+              <span class="bola"></span>
             </div>
           </div>
 
           <div class="card_refri">
             <p>Refrigerador 3</p>
             <div class="barra"></div>
-
             <div class="temperatura_atual">
               0°
-              <div class="bola"></div>
+              <span class="bola"></span>
             </div>
           </div>
 
@@ -72,36 +72,37 @@
             <div class="barra"></div>
             <div class="temperatura_atual">
               0°
-              <div class="bola"></div>
+              <span class="bola"></span>
             </div>
           </div>
 
           <div class="grafico">
-            <h2>Titulo</h2>
-
             <div>
               <canvas id="Chart_meus_refrigeradores"></canvas>
             </div>
           </div>
+          
         </div>
+
+      </div>
 
         <div class="card_metricas">
           <div class="indicador I">
-            Perigo <span class="numero">-23°C</span>
+            Perigo <span class="numero">-25°C</span>
           </div>
           <div class="indicador II">
-            Congelar <span class="numero">-18°C</span>
+            Congelar <span class="numero">-22°C</span>
           </div>
           <div class="indicador III">
-            Consumo <span class="numero">4°C</span>
+            Consumo <span class="numero">-20°C</span>
           </div>
           <div class="indicador IIII">
-            Descongelar <span class="numero">16°C</span>
+            Descongelar <span class="numero">-19°C</span>
           </div>
           <div class="indicador IIIII">
-            Perigo <span class="numero">21°C</span>
+            Perigo <span class="numero">-15°C</span>
           </div>
-        </div>
+
       </div>
     </div>
   </body>
