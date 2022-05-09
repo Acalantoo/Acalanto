@@ -185,7 +185,6 @@ li a {
   background-color: rgb(236, 86, 60);
 }
 
-
 /* GRAFICOS */
 .h2 {
   font-family: Bahnschrift;
@@ -221,7 +220,7 @@ li a {
 
 .form {
   display: flex;
-  height: 1000px;
+  height: 880px;
   width: 60%;
   border: 5px solid #3a3383;
   margin-top: 30px;
