@@ -185,6 +185,38 @@ li a {
   background-color: rgb(236, 86, 60);
 }
 
+
+/* GRAFICOS */
+.h2 {
+  font-family: Bahnschrift;
+}
+.h3 {
+  font-family: Bahnschrift;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid firebrick; */
+  height: 400px;
+  width: 1000px;
+  align-items: center;
+}
+
+.grafico2 {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  justify-content: space-between;
+  margin-bottom: 55px;
+}
+
+.grafico2 .sub_grafico {
+  height: 90%;
+  width: 48%;
+}
+
 /* COMECANDO A PAGINA DE ADICIONAR USUARIOS */
 
 .form {
