@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
   </head>
-  <body>
+  <body onload="atualizacaoPeriodica()">
   <!-- <body onload="validarSessao()"> -->
     <div class="header">
       <div class="container">
@@ -43,7 +43,7 @@
           <div class="card_refri">
             <p>Refrigerador 1</p>
             <div class="barra"></div>
-            <div class="temperatura_atual">
+            <div id="refrigerador1" class="temperatura_atual">
               0°
               <span class="bola"></span>
             </div>
@@ -52,7 +52,7 @@
           <div class="card_refri">
             <p>Refrigerador 2</p>
             <div class="barra"></div>
-            <div class="temperatura_atual">
+            <div id="refrigerador2" class="temperatura_atual">
               0°
               <span class="bola"></span>
             </div>
@@ -61,7 +61,7 @@
           <div class="card_refri">
             <p>Refrigerador 3</p>
             <div class="barra"></div>
-            <div class="temperatura_atual">
+            <div id="refrigerador3" class="temperatura_atual">
               0°
               <span class="bola"></span>
             </div>
@@ -70,7 +70,7 @@
           <div class="card_refri">
             <p>Refrigerador 4</p>
             <div class="barra"></div>
-            <div class="temperatura_atual">
+            <div id="refrigerador4" class="temperatura_atual">
               0°
               <span class="bola"></span>
             </div>
@@ -88,19 +88,19 @@
 
         <div class="card_metricas">
           <div class="indicador I">
-            Perigo <span class="numero">-25°C</span>
+            Perigo Frio <span class="numero">-25°C</span>
           </div>
           <div class="indicador II">
-            Congelar <span class="numero">-22°C</span>
+            Alerta Frio <span class="numero">-22°C</span>
           </div>
           <div class="indicador III">
-            Consumo <span class="numero">-20°C</span>
+            Ideal <span class="numero">-20°C</span>
           </div>
           <div class="indicador IIII">
-            Descongelar <span class="numero">-19°C</span>
+            Alerta Quente <span class="numero">-19°C</span>
           </div>
           <div class="indicador IIIII">
-            Perigo <span class="numero">-15°C</span>
+            Perigo Quente <span class="numero">-15°C</span>
           </div>
 
       </div>
@@ -129,25 +129,25 @@
         label: "Refrigerador 1",
         backgroundColor: "red",
         borderColor: "red",
-        data: [-12, -10, -15, -22, -20, -11, 0, -8, -3],
+        data: [-16, -18, -15, -22],
       },
       {
         label: "Refrigerador 2",
         backgroundColor: "blue",
         borderColor: "blue",
-        data: [0, -10, -5, -2, 0, 3, 4, -3, 1],
+        data: [-20, -18, -16, -22],
       },
       {
         label: "Refrigerador 3",
         backgroundColor: "green",
         borderColor: "green",
-        data: [-4, 1, -15, -2, -2, 0, 5, 6, 4],
+        data: [-18, -19, -18, -20],
       },
       {
         label: "Refrigerador 4",
         backgroundColor: "purple",
         borderColor: "purple",
-        data: [3, -10, -5, 2, -17, -11, -5, -19, -14],
+        data: [-19, -21, -19, -20],
       },
     ],
   };
@@ -164,4 +164,105 @@
     document.getElementById("Chart_meus_refrigeradores"),
     config
   );
+</script>
+
+<script>
+
+  function atualizacaoPeriodica() {
+      obterdados(1);
+      obterdados(2);
+      obterdados(3);
+      obterdados(4);
+
+      function sendData() {
+    var http = new XMLHttpRequest();
+    http.open('POST', 'http://localhost:3000/api/sendData', false);
+    http.send(null);
+  }
+
+      setInterval(() => {
+    sendData();
+  }, 2000);
+      setTimeout(atualizacaoPeriodica, 5000);
+  }
+
+  function obterdados(idAquario) {
+      fetch(`/medidas/tempo-real/${idAquario}`)
+          .then(resposta => {
+
+              if (resposta.ok) {
+                  resposta.json().then(resposta => {
+
+                      console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                      var dados = {
+                          temperatura: resposta[0].temperatura,
+                      }
+
+                      alertar(resposta[0].temperatura, idAquario);
+                  });
+              } else {
+
+                  console.error('Nenhum dado encontrado ou erro na API');
+              }
+          })
+          .catch(function (error) {
+              console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+          });
+
+  }
+
+  function alertar(temperatura, idAquario) {
+      var limites = {
+          muito_quente: -15,
+          quente: -19,
+          ideal: -20,
+          frio: -22,
+          muito_frio: -25
+      };
+
+      var classe_temperatura = 'cor-alerta';
+
+      if (temperatura >= limites.muito_quente) {
+          classe_temperatura = 'cor-alerta perigo-quente';
+          console.log("caiu no 1")
+      }
+      else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+          classe_temperatura = 'cor-alerta alerta-quente';
+          console.log("caiu no 2")
+      }
+      else if (temperatura < limites.quente && temperatura > limites.frio) {
+          classe_temperatura = 'cor-alerta ideal';
+          console.log("caiu no 3")
+      }
+      else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+          classe_temperatura = 'cor-alerta alerta-frio';
+          console.log("caiu no 4")
+      }
+      else if (temperatura < limites.min_temperatura) {
+          classe_temperatura = 'cor-alerta perigo-frio';
+          console.log("caiu no 5")
+      }
+
+      var card;
+
+      if (idAquario == 1) {
+          refrigerador1.innerHTML = temperatura + "°C";
+          // card = card_1;
+      } else if (idAquario == 2) {
+          refrigerador2.innerHTML = temperatura + "°C";
+          // card = card_2
+      } else if (idAquario == 3) {
+          refrigerador3.innerHTML = temperatura + "°C";
+          // card = card_3
+      } else if (idAquario == 4) {
+          refrigerador4.innerHTML = temperatura + "°C";
+          // card = card_4
+      }
+
+      // alterando
+      card.className = classe_temperatura;
+
+  }
+
 </script>
