@@ -8,28 +8,36 @@
 
     <link rel="stylesheet" href="./CSS/Estilo.css">
     <script src="./JavaScript/Funcionalidade.js"></script>
-    <title>Acalanto - Home</title>
+    <title>Acalanto</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+
 </head>
 
 <body>
-    <div class="header_Absolute">
+    <div class="header">
         <div class="container">
             <img onclick="go_index()" src="./img/Logo_Acalanto_icon.png">
             
-            <h1><a href="Index.html">Acalanto</a></h1>
+            <h1><a href="#HOME">Acalanto</a></h1>
             <ul class="navbar">
-                <li><a href="Sobre Nós.html">Sobre nós</a></li>
-                <li><a href="Simulador.html">Simulador</a></li>
-                <li><a href="Contato.html">Contato</a></li>
+                <li><a href="#SOBRE_NOS" class="transitionColor">Sobre nós</a></li>
+                <li><a href="#SIMULADOR" class="transitionColor">Simulador</a></li>
+                <li><a href="#CONTATO" class="transitionColor">Contato</a></li>
             </ul>
+            
             <div class="container">
                 <button onclick="go_login()" class="btn">Entrar</button>
-                <button onclick="go_cadastro()" class="btn">Cadastre-se</button>
+                <button onclick="go_cadastro()" class="btn solicitar">Solicitar Cadastro</button>
             </div>
         </div>
     </div>
 
-    <div class="banner_home">
+    <!-- Home -->
+
+    <div id="HOME" class="banner_home">
         <div class="container_home">
 
             <div class="card_titulo">
@@ -38,8 +46,8 @@
 
                 <div class="buttons">
 
-                    <div onclick="go_login()" class="btn_Entrar">Entrar</div>
-                    <div onclick="go_cadastro()" class="btn_Cadastre">Cadastre-se</div>
+                    <div onclick="go_login()" class="btn_2">Solicitar Cadastro</div>
+                    <!-- <div onclick="go_cadastro()" class="btn_2">Solicitar Cadastro</div> -->
 
                 </div>
             </div>
@@ -49,6 +57,167 @@
             </div>
         </div>
     </div>
+
+    <!-- Sobre Nos -->
+
+    <div id='SOBRE_NOS' class="banner_sobre_nos">
+        <div class="container"> 
+            <div class="container">
+                <div class="card_mis_vis_val">
+                    <div class="card_mvv">
+                        <img src="./img/Icon_missao.png">
+                        <div class="barra"></div>
+                        <p>Garantir a segurança do armazenamentodo leite materno para que não ocorram perdas</p>
+                    </div>
+                    <div class="card_mvv">
+                        <img src="./img/Icon_visao.png">
+                        <div class="barra"></div>
+                        <p>Ser a empresa que trás confiança, facilita e 
+                            satisfaz as necessidades dos hospitais com banco de leite</p>
+                    </div>
+                    <div class="card_mvv">
+                        <img src="./img/Icon_valores.png">
+                        <div class="barra"></div>
+                        <p>Ética, transparência, valorização do cliente, 
+                            empreendedorismo, confiança e segurança</p>
+                    </div>
+                </div>
+                <div class="card_sobre">
+                    <h1>Sobre Nós</h1>
+                    <div class="barra"></div>
+                    <p>Somos uma empresa brasileira de tecnologia que oferece suporte ao
+                        controle de temperatura para hospitais com banco de leite materno,
+                        administrando com qualidade, facilidade e segurança.
+                    </p>
+                </div>
+            </div>
+            <!-- Murilo Murilo Murilo Murilo Murilo-->
+
+            <div class="divisao"></div>
+
+            <div class="container">
+                <div class="card_servicos">
+                    <h1>Serviços</h1>
+                    <div class="barra"></div>
+                    <p>Oferecemos serviços de controle de temperatura através de arduínos 
+                        para hospitais que contenham banco de leite materno, garantindo 
+                        maior segurança ao armazenamento e tornando o trabalho mais autônomo.
+                    </p>
+                </div>
+    
+                <div class="card_foto_sobre_nos">
+                    <img src="./img/bebe_sobreNos.jpg">
+                </div>
+
+            </div>
+            <div class="divisao"></div>
+            <!-- Murilo Murilo Murilo Murilo Murilo-->
+        </div>
+    </div>
+
+    <!-- Simulador -->
+
+    <div id="SIMULADOR" class="banner">
+            <div class="container">
+                <div class="card_result">
+                    <h1>Faça uma simulação da perda de leite materno</h1>
+                    <p id="p_simulador"> Faça já sua simulação financeira!!! <br>
+                        Descubra o quanto você está perdendo e quanto economizará com a Acalanto! <br>
+                        A empresa número 1 em monitoramento de leite materno.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3> Considere as informações mensais </h3>
+                    <div class="label">
+                        <h2> Quantidade de frascos recebidos: </h2>
+                        <input id="input_frasco_recebido" type="number">
+                    </div>
+                    <div class="label">
+                        <h2> Quantidade de frascos perdidos: </h2>
+                        <input id="input_frasco_perdido" type="number">
+                    </div>
+                    <div class="label">
+                        <h2> Quantidade média de cada frasco: </h2>
+                        <select id="select_frasco_media" class="combo_box" class = ''>
+                            <option value="40">Frascos de 400ml</option>
+                            <option value="70">Frascos de 800ml</option>
+                        </select>
+                    </div>
+                    <div class="container">
+                        <button class="btn" onclick="simular_prejuizo()"> Simular </button>
+                    </div>
+
+                    <div class="divisao"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contato -->
+    <div class="container_img"> 
+         <img src="./img/Logo_Acalanto_icon3.png"> 
+        <h1>Acalanto</h1>
+    </div>
+
+    <div id="CONTATO" class="banner">
+        <div class="container">
+            <form action="https://formspree.io/f/xyyonnjq" method="POST" class="card_result_formulario">
+                <h1>Contate-nos</h1>
+                <div class="label">
+                    <h2>Nome:</h2>
+                    <input name="nome" id="input" type="text">
+                </div>
+                <div class="label">
+                    <h2>Email:</h2>
+                    <input name="email" id="input" type="text">
+                </div>
+                <div class="label">
+                    <h2>Digite sua mensagem:</h2>
+                    <input name="mensagem" id="input" type="text">
+                </div>
+                <div class="container">
+                    <button onclick="enviar_solicitacao()" class="btn">Enviar</button>
+                </div>
+            </form>
+
+            <div class="card_informacoes">
+                <div class="label">
+                    <div class="label_img">
+                        <img src="./img/Icon_localizaçao.png">
+                    </div>
+                    <div class="label_info">
+                        <h3> Endereço </h3>
+                        <h2> Rua Haddock Lobo, 595 </h2>
+                        <h2> Cerqueira César </h2>
+                        <h2> São Paulo - SP </h2>
+                        <h2> 01414-001 </h2>
+                    </div>
+                </div>
+                <div class="label_email">
+                    <div class="label_img">
+                        <img src="./img/Icon_email.png">
+                    </div>
+                    <div class="label_info">
+                        <h3> Email </h3>
+                        <h2> acalanto.solutions@gmail.com </h2>
+                    </div>
+                </div>
+                <div class="label">
+                    <div class="label_img">
+                        <img src="./img/Icon_telefone.png">
+                    </div>
+                    <div class="label_info">
+                        <h3> Telefone </h3>
+                        <h2> (11) 9999-9999</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
 
     <div class="footer">
         <div class="container">

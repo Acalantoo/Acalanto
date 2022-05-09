@@ -38,9 +38,9 @@ function simular_prejuizo() {
         var prejuizo = frasco_media * frasco_perdido;
 
         p_simulador.innerHTML = ` 
-        O número de doações de leites maternos recebidos foram de <b style="color:white"><u>${frasco_recebido}</u> frascos</b>, destas doações apenas <b style="color:white"><u>${porc_frasco_restante.toFixed(2)}</u>%</b> foram conservados adequadamente, os outros <b style="color:white"><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> foram descartados. 
-        Para suprir a necessidade destes <b style="color:white"> <u>${porc_frasco_perdido.toFixed(2)}</u>%</b>, é utilizado o suplemento alimentar, tendo uma média de valor de <b style="color:white"><u>R$${frasco_media.toLocaleString("pt-BR", { currency: 'BRL' })}</u></b>. Ou seja, por mês o valor gasto é de <b style="color:white"><u>R$${prejuizo.toLocaleString("pt-BR", { currency: 'BRL' })}</u></b>. 
-        Nós da Acalanto vamos te ajudar a reduzir estes <b style="color:white"><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> monitorando o leite materno de forma adequada. Sendo assim, os <b style="color:white"><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> que você teve de perda e os gastos com os suplementos poderão diminuir em até 50% (que já serão notados em 3 meses após a implementação). 
+        O número de doações de leites maternos recebidos foram de <b><u>${frasco_recebido}</u></b> frascos, destas doações apenas <b><u>${porc_frasco_restante.toFixed(2)}</u>%</b> foram conservados adequadamente, os outros <b><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> foram descartados. 
+        Para suprir a necessidade destes <b> <u>${porc_frasco_perdido.toFixed(2)}</u>%</b>, é utilizado o suplemento alimentar, tendo uma média de valor de <b><u>R$${frasco_media.toLocaleString("pt-BR", { currency: 'BRL' })}</u></b>. Ou seja, por mês o valor gasto é de <b><u>R$${prejuizo.toLocaleString("pt-BR", { currency: 'BRL' })}</u></b>. 
+        Nós da Acalanto vamos te ajudar a reduzir estes <b><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> monitorando o leite materno de forma adequada. Sendo assim, os <b><u>${porc_frasco_perdido.toFixed(2)}</u>%</b> que você teve de perda e os gastos com os suplementos poderão diminuir em até 50% (que já serão notados em 3 meses após a implementação). 
         `
     }
 }
