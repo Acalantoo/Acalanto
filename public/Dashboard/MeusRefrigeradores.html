@@ -49,7 +49,7 @@
         
         <div class="refrigeradores">
           
-          <div class="card_refri">
+          <div class="card_refri" id="card_1">
             <p>Refrigerador 1</p>
             <div class="barra"></div>
             <div id="refrigerador1" class="temperatura_atual">
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="card_refri">
+          <div class="card_refri" id="card_2">
             <p>Refrigerador 2</p>
             <div class="barra"></div>
             <div id="refrigerador2" class="temperatura_atual">
@@ -67,7 +67,7 @@
             </div>
           </div>
 
-          <div class="card_refri">
+          <div class="card_refri" id="card_3">
             <p>Refrigerador 3</p>
             <div class="barra"></div>
             <div id="refrigerador3" class="temperatura_atual">
@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <div class="card_refri">
+          <div class="card_refri" id="card_4">
             <p>Refrigerador 4</p>
             <div class="barra"></div>
             <div id="refrigerador4" class="temperatura_atual">
@@ -224,54 +224,54 @@
 
   function alertar(temperatura, idAquario) {
       var limites = {
-          muito_quente: -15,
-          quente: -19,
-          ideal: -20,
-          frio: -22,
-          muito_frio: -25
+          muito_quente: 25,
+          quente: 22,
+          ideal: 20,
+          frio: 19,
+          muito_frio: 15
       };
 
-      var classe_temperatura = 'cor-alerta';
+      var classe_temperatura = 'card_refri';
 
       if (temperatura >= limites.muito_quente) {
-          classe_temperatura = 'cor-alerta perigo-quente';
+          classe_temperatura = 'card_refri I';
           console.log("caiu no 1")
       }
       else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
-          classe_temperatura = 'cor-alerta alerta-quente';
+          classe_temperatura = 'card_refri II';
           console.log("caiu no 2")
       }
       else if (temperatura < limites.quente && temperatura > limites.frio) {
-          classe_temperatura = 'cor-alerta ideal';
+          classe_temperatura = 'card_refri III';
           console.log("caiu no 3")
       }
       else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-          classe_temperatura = 'cor-alerta alerta-frio';
+          classe_temperatura = 'card_refri IIII';
           console.log("caiu no 4")
       }
-      else if (temperatura < limites.min_temperatura) {
-          classe_temperatura = 'cor-alerta perigo-frio';
+      else if (temperatura <= limites.muito_frio) {
+          classe_temperatura = 'card_refri IIIII';
           console.log("caiu no 5")
       }
 
       var card;
 
       if (idAquario == 1) {
-          refrigerador1.innerHTML = temperatura + "°C";
-          // card = card_1;
+          refrigerador1.innerHTML = "- " + temperatura + "°C";
+          card = card_1;
       } else if (idAquario == 2) {
-          refrigerador2.innerHTML = temperatura + "°C";
-          // card = card_2
+          refrigerador2.innerHTML = "- " + temperatura + "°C";
+          card = card_2
       } else if (idAquario == 3) {
-          refrigerador3.innerHTML = temperatura + "°C";
-          // card = card_3
+          refrigerador3.innerHTML = "- " + temperatura + "°C";
+          card = card_3
       } else if (idAquario == 4) {
-          refrigerador4.innerHTML = temperatura + "°C";
-          // card = card_4
+          refrigerador4.innerHTML = "- " + temperatura + "°C";
+          card = card_4
       }
 
       // alterando
-      // card.className = classe_temperatura;
+      card.className = classe_temperatura;
 
   }
 
