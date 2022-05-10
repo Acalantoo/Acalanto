@@ -1,6 +1,14 @@
 body {
   margin: 0;
 }
+
+.aviso {
+  color: rgb(231, 18, 18);
+  font-family: Bahnschrift;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -45,6 +53,16 @@ body {
   height: 100vh;
   width: 18%;
   position: fixed;
+}
+
+.divisao{
+  height: 1px;
+  width: 100%;
+  background-color: #6c5eff;
+}
+.estar{
+  height: 2px;
+  background-color: #ffffff;
 }
 
 .agora{
@@ -154,9 +172,16 @@ li a {
   width: 20%;
   border-radius: 20px;
   padding: 0px 10px 20px 10px;
-  background-color: #3210ac;
+  background-color: #6c5eff;
   font-family: Bahnschrift;
   color: white;
+
+  transition: background-color 0.01s, font-size 0.01s;
+}
+
+.card_refri:hover {
+  background-color: #a186ff;
+  font-size: large;
 }
 
 .temperatura_atual {
@@ -228,56 +253,40 @@ li a {
   background-color: rgb(236, 86, 60);
 }
 
-/* GRAFICOS */
-.h2 {
-  font-family: Bahnschrift;
-}
-.h3 {
-  font-family: Bahnschrift;
-}
+/* COMECANDO A PAGINA DE ADICIONAR USUARIOS //////////////////////////////////////////*/
 
-.todos {
+.banner_NU .container_NU{
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  /* border: 2px solid firebrick; */
-  height: 400px;
-  width: 1000px;
+  height: 100vh;
+  width: 82%;
+  float: right;
   align-items: center;
+  justify-content: center;
+  background-color: #1c0a5a;
+  background-image: linear-gradient( 200deg, #3a3383, #5c53bb, #6c5eff ); 
 }
-
-.grafico2 {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  justify-content: space-between;
-  margin-bottom: 55px;
-}
-
-.grafico2 .sub_grafico {
-  height: 90%;
-  width: 48%;
-}
-
-/* COMECANDO A PAGINA DE ADICIONAR USUARIOS */
 
 .form {
   display: flex;
-  height: 880px;
-  width: 60%;
-  border: 5px solid #3a3383;
-  margin-top: 30px;
-  border-radius: 40px;
-  background-color: #6c5eff;
+  height: 90%;
+  width: 40%;
+  border-radius: 20px;
+  background-color: #efefef;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: Bahnschrift;
   font-size: 18px;
+  align-self: center;
+}
+
+h4{
+  color: #3a3383;
 }
 
 .list_form h2 {
-  color: white;
+  color: #6c5eff;
   font-family: Bahnschrift;
 }
 
@@ -286,19 +295,15 @@ li a {
   width: 80%;
 }
 
-/* .btn {
+.form .btn {
   font-family: Bahnschrift;
   background-color: #6c5eff;
   color: white;
   height: 10%;
-  width: 30%;
-  font-size: 19px;
-  border-radius: 15px;
-  border: 0;
-  cursor: pointer;
-  border: 5px solid white;
-  margin-bottom: 10px;
-} */
+  width: 50%;
+}
+
+
 input {
   width: 99%;
   border: 0;
@@ -308,12 +313,141 @@ input {
   min-width: 180px;
   /* O mínimo da largura que pode chegar o input é 180 */
   font-size: 16px;
-  background-color: #6c5eff;
+  background-color: transparent;
 }
+
 select {
   border-radius: 5px;
   height: 35px;
   background-color: rgb(200, 214, 214);
 }
 
-/* PAGINA RELATORIO */
+/* PAGINA RELATORIO ////////////////////////////////////////////////////////////////////////////////////////*/
+.banner_re .container_re{
+  margin: 0;
+  display: flex;
+  height: 200vh;
+  width: 82%;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  background-color: #c2c2c2;
+}
+
+.form_re {
+  display: flex;
+  height: 90%;
+  width: 70%;
+  border-radius: 20px;
+  background-color: #efefef;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Bahnschrift;
+  font-size: 18px;
+  align-self: center;
+}
+
+h4{
+  color: #3a3383;
+}
+
+.list_form_re h2 {
+  color: #6c5eff;
+  font-family: Bahnschrift;
+}
+
+.list_form_re {
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  flex-direction: column;
+  height: 90%;
+  width: 70%;
+}
+
+.form .btn {
+  font-family: Bahnschrift;
+  background-color: #6c5eff;
+  align-self: center;
+  color: white;
+  height: 10%;
+  width: 50%;
+}
+
+input {
+  width: 99%;
+  border: 0;
+  border-bottom: 2px solid #3a3383;
+  outline: none;
+  /* Remove as bordas ao clicar na input */
+  min-width: 180px;
+  /* O mínimo da largura que pode chegar o input é 180 */
+  font-size: 16px;
+  background-color: transparent;
+}
+
+select{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 35px;
+  background-color: #6c5eff;
+}
+
+.txt_area{
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #3a3383;
+}
+
+/* Inicicio coddigo dos graficos //////////////////////////////////////////////////////////////////////////////*/
+
+.banner_graficos .container_graficos {
+  margin: 0;
+  /* padding: 1%; */
+  display: flex;
+  width: 82%;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  background-color: #c2c2c2;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  /* background-color: #c2c2c2; */
+  background-color: #efefef;
+  border-radius: 20px;
+}
+
+.h2 {
+  font-family: Bahnschrift;
+  color: #6c5eff
+}
+.h3 {
+  font-family: Bahnschrift;
+}
+
+.grafico {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 55px;
+}
+
+.grafico .sub_grafico {
+  height: 90%;
+  width: 48%;
+}
+

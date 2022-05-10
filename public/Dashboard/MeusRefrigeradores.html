@@ -9,10 +9,14 @@
     <script src="../JavaScript/Funcionalidade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+
   </head>
 
-  <body>
-  <!-- <body onload="atualizacaoPeriodica()"> -->
+  <body onload="atualizacaoPeriodica()">
     <div class="header">
       <div class="container">
         <div class="card_logo">
@@ -28,13 +32,13 @@
 
         <ul class="navbar">
           <li><a href="MeusRefrigeradores.html" class="agora">Refrigeradores</a></li>
-          <hr>
+          <div class="divisao estar"></div>
           <li><a href="NovoUsuario.html">Novo Usuario</a></li>
-          <hr>
+          <div class="divisao"></div>
           <li><a href="Relatorio.html">Relatório</a></li>
-          <hr>
+          <div class="divisao"></div>
           <li><a href="graficos.html">Gráficos</a></li>
-          <hr>
+          <div class="divisao"></div>
         </ul>
         <button onclick="limparSessao()" class="btn">Sair</button>
       </div>

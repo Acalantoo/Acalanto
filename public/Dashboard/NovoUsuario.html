@@ -9,37 +9,47 @@
     <script src="../JavaScript/Funcionalidade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+
   </head>
 
-  <body onload="validarSessao()">
+  <body>
+  <!-- <body onload="validarSessao()"> -->
     <div class="header">
       <div class="container">
         <div class="card_logo">
-          <img src="../img/Logo_Acalanto_icon(2).png" />
+          <img src="../img/Logo_Acalanto_icon3.png" />
 
-          <h2><a ref="MeusRefrigeradores.html">Acalanto</a></h2>
+          <h2><a href="MeusRefrigeradores.html">Acalanto</a></h2>
         </div>
-
+      
         <div class="card_perfil">
           <img src="../img/Logo_Acalanto_icon.png" />
           <h4 id="perfil"></h4>
         </div>
 
         <ul class="navbar">
-          <li><a href="MeusRefrigeradores.html">Meus Refrigeradores</a></li>
-          <li><a href="NovoUsuario.html">Novo Usuario</a></li>
-          <li><a href="Relatorio.html">Relatorio</a></li>
-          <li><a href="graficos.html">Graficos</a></li>
+          <li><a href="MeusRefrigeradores.html">Refrigeradores</a></li>
+          <div class="divisao"></div>
+          <li><a href="NovoUsuario.html" class="agora">Novo Usuario</a></li>
+          <div class="divisao estar"></div>
+          <li><a href="Relatorio.html">Relatório</a></li>
+          <div class="divisao"></div>
+          <li><a href="graficos.html">Gráficos</a></li>
+          <div class="divisao"></div>
         </ul>
-        <button onclick="limparSessao()">Sair</button>
+        <button onclick="limparSessao()" class="btn">Sair</button>
       </div>
     </div>
 
-    <div class="banner">
-      <div class="container">
+    <div class="banner_NU">
+      <div class="container_NU">
         <div class="form" style="height: 600px">
           <label class="list_form">
-            <h2>Novo Usuario</h2>
+            <h2>Novo Usuário</h2>
             <h4>Nome:</h4>
             <input id="input_nome_novoUsuario" type="text" />
             <div class="aviso" id="aviso1"></div>
@@ -60,16 +70,21 @@
             <div class="aviso" id="aviso4"></div>
             <br /><br />
 
-            <div class="aviso" id="aviso5"></div>
+            <div class="aviso" id="div_aviso"></div>
+            
           </label>
+
           <button onclick="cadastrarUsuarioNovoUsuario()" class="btn">
-            Cadastre-se
+            Cadastrar novo usuário
           </button>
+
         </div>
       </div>
     </div>
   </body>
 </html>
+
+
 <script>
   function cadastrarUsuarioNovoUsuario() {
     //Recupere o valor da nova input pelo nome do id
@@ -88,18 +103,18 @@
       senhaUsuario == "" ||
       confirmarSenha == ""
     ) {
-      aviso5.innerHTML = "Preencha todos os campos para prosseguir!";
+      div_aviso.innerHTML = "Preencha todos os campos para prosseguir!";
     } else if (nomeUsuario.length > 90) {
-      aviso1.innerHTML = "Limite de 90 caracteres excedido!";
+      div_aviso.innerHTML = "Limite de 90 caracteres excedido!";
     } else if (sobrenomeUsuario.length > 90) {
-      aviso2.innerHTML = "Limite de 90 caracteres excedido!";
+      div_aviso.innerHTML = "Limite de 90 caracteres excedido!";
     } else if (
       emailUsuario.indexOf("@") <= 0 ||
       emailUsuario.indexOf(".com") == -1
     ) {
-      aviso3.innerHTML = "Email inválido!";
+      div_aviso.innerHTML  = "Email inválido!";
     } else if (confirmarSenha != senhaUsuario) {
-      aviso4.innerHTML = "As senhas não estão iguais!";
+      div_aviso.innerHTML = "As senhas não estão iguais!";
     } else {
       // Enviando o valor da nova input
       fetch("/usuarios/cadastrarUsuarioNovoUsuario", {

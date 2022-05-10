@@ -9,37 +9,48 @@
     <script src="../JavaScript/Funcionalidade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+
   </head>
 
-  <body onload="validarSessao()">
+  <body>
+  <!-- <body onload="validarSessao()"> -->
     <div class="header">
       <div class="container">
         <div class="card_logo">
-          <img src="../img/Logo_Acalanto_icon(2).png" />
+          <img src="../img/Logo_Acalanto_icon3.png" />
 
           <h2><a href="MeusRefrigeradores.html">Acalanto</a></h2>
         </div>
-
+      
         <div class="card_perfil">
           <img src="../img/Logo_Acalanto_icon.png" />
           <h4 id="perfil"></h4>
         </div>
 
         <ul class="navbar">
-          <li><a href="MeusRefrigeradores.html">Meus Refrigeradores</a></li>
+          <li><a href="MeusRefrigeradores.html">Refrigeradores</a></li>
+          <div class="divisao"></div>
           <li><a href="NovoUsuario.html">Novo Usuario</a></li>
-          <li><a href="Relatorio.html">Relatorio</a></li>
-          <li><a href="graficos.html">Graficos</a></li>
+          <div class="divisao"></div>
+          <li><a href="Relatorio.html" class="agora">Relatório</a></li>
+          <div class="divisao estar"></div>
+          <li><a href="graficos.html">Gráficos</a></li>
+          <div class="divisao"></div>
         </ul>
-        <button onclick="limparSessao()">Sair</button>
+        <button onclick="limparSessao()" class="btn">Sair</button>
       </div>
     </div>
 
-    <div class="banner">
-      <div class="container">
-        <div class="form">
-          <label class="list_form">
-            <h2>Relatorio Diario:</h2>
+
+    <div class="banner_re">
+      <div class="container_re">
+        <div class="form_re">
+          <label class="list_form_re">
+            <h2>Relatorio Diário:</h2>
 
             <!-- qual refrigerador -->
             <h4>Selecione o Refrigerador:</h4>
@@ -50,7 +61,7 @@
               <option value="4">Refrigerador 4</option>
             </select>
 
-            <h4>Temperatura Media do Dia :</h4>
+            <h4>Temperatura(Cº) Media do Dia :</h4>
             <input id="input_temperatura_media" type="number" />
 
             <h4>Quantidade(L) do estoque de leite:</h4>
@@ -58,7 +69,7 @@
               <option value="0">0L-10L</option>
               <option value="1">10L-20L</option>
               <option value="2">20L-30L</option>
-              <option value="3">30L-40l</option>
+              <option value="3">30L-40L</option>
             </select>
 
             <h4>Quantidade(L) de doações de leite:</h4>
@@ -66,7 +77,7 @@
               <option value="0">0L-10L</option>
               <option value="1">10L-20L</option>
               <option value="2">20L-30L</option>
-              <option value="3">30L-40l</option>
+              <option value="3">30L-40L</option>
             </select>
 
             <h4>Quantidade(L) de Desperdicio:</h4>
@@ -80,9 +91,12 @@
             <input id="input_dt_relatorio" type="date" />
 
             <h4>Observação:</h4>
-            <input id="input_observacao type="text">
+            <textarea name="mensagem" id="input" cols="30" rows="10" class="txt_area"></textarea><br><br>
+
+            <button class="btn">Reportar</button>
+
           </label>
-          <button class="btn" style="height: 5%">Reportar</button>
+
         </div>
       </div>
     </div>
