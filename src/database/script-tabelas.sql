@@ -237,6 +237,7 @@ join registros on idSensor = fkSensor
 join relatorio_diario on relatorio_diario.fkUsuario = Usuario.idUsuario;
 
 /*********************************************************************************************/
+/*********************************************************************************************/
 /*Nuvem*/
 
   insert into empresa (nomeEmpresa, CNPJ, CEP, estado, cidade, bairro, logradouro, complemento, telefone_fixo) values
@@ -290,26 +291,26 @@ join relatorio_diario on relatorio_diario.fkUsuario = Usuario.idUsuario;
 	('LM35', 'Temperatura', '16');
 
   insert into registros (temperaturaAtual, fkSensor) values
-	('-18', 1),
-	('-17', 1),
-  ('-19', 1),
-  ('-16', 1),
-  ('-17', 2),
-  ('-19', 2),
-  ('-18', 2),
-  ('-20', 2),
-  ('-23', 3),
-  ('-18', 3),
-	('-20', 3),
-	('-21', 3),
-	('-18', 4),
-	('-18', 4),
-	('-18', 4),
-	('-19', 4),
-	('-21', 5),
-	('-22', 5),
-	('-24', 5),
-	('-26', 5);
+  (18, 1),
+  (17, 1),
+  (19, 1),
+  (16, 1),
+  (17, 2),
+  (19, 2),
+  (18, 2),
+  (20, 2),
+  (23, 3),
+  (18, 3),
+  (20, 3),  
+  (21, 3),
+  (18, 4),
+  (18, 4),
+  (18, 4),
+  (19, 4),
+  (21, 5),
+  (22, 5),
+  (24, 5),
+  (26, 5);
 
   insert into relatorio_diario (fkUsuario, fkRefrigerador, fkEmpresa, temperaturaMedia, totalLeite, leiteRecebido, leitePerdido, observacao) values 
 	(1, 1, 1, '-15°C', '100L', '20L', '10L', 'Recebemos 20L de leite hoje, eles permaneceram numa temperatura quase ideal. Perdemos 10L.'),

@@ -206,10 +206,10 @@
                       console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                       var dados = {
-                          temperatura: resposta[0].temperatura,
+                          temperatura: resposta[0].temperaturaAtual,
                       }
 
-                      alertar(resposta[0].temperatura, idAquario);
+                      alertar(resposta[0].temperaturaAtual, idAquario);
                   });
               } else {
 
@@ -271,7 +271,7 @@
       }
 
       // alterando
-      card.className = classe_temperatura;
+      // card.className = classe_temperatura;
 
   }
 

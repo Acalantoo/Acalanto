@@ -14,7 +14,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 }
 
 function buscarMedidasEmTempoReal(idAquario) {
-    instrucaoSql = `select top 1 temperaturaAtual, dtHora
+    instrucaoSql = `select top 1 temperaturaAtual
                     from Registros where fkSensor = ${idAquario} 
                     order by idRegistros desc`;
 
