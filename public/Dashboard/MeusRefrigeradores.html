@@ -10,12 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acalanto - Meus Refrigeradores</title>
   </head>
-  <body onload="atualizacaoPeriodica()">
-  <!-- <body onload="validarSessao()"> -->
+
+  <body>
+  <!-- <body onload="atualizacaoPeriodica()"> -->
     <div class="header">
       <div class="container">
         <div class="card_logo">
-          <img src="../img/Logo_Acalanto_icon(2).png" />
+          <img src="../img/Logo_Acalanto_icon3.png" />
 
           <h2><a href="MeusRefrigeradores.html">Acalanto</a></h2>
         </div>
@@ -26,12 +27,16 @@
         </div>
 
         <ul class="navbar">
-          <li><a href="MeusRefrigeradores.html">Meus Refrigeradores</a></li>
+          <li><a href="MeusRefrigeradores.html" class="agora">Refrigeradores</a></li>
+          <hr>
           <li><a href="NovoUsuario.html">Novo Usuario</a></li>
-          <li><a href="Relatorio.html">Relatorio</a></li>
-          <li><a href="graficos.html">Graficos</a></li>
+          <hr>
+          <li><a href="Relatorio.html">Relatório</a></li>
+          <hr>
+          <li><a href="graficos.html">Gráficos</a></li>
+          <hr>
         </ul>
-        <button onclick="limparSessao()">Sair</button>
+        <button onclick="limparSessao()" class="btn">Sair</button>
       </div>
     </div>
 
@@ -76,15 +81,14 @@
             </div>
           </div>
 
-          <div class="grafico">
+          <div class="card_grafico">
             <div>
               <canvas id="Chart_meus_refrigeradores"></canvas>
             </div>
           </div>
-          
+
         </div>
 
-      </div>
 
         <div class="card_metricas">
           <div class="indicador I">
@@ -102,9 +106,11 @@
           <div class="indicador IIIII">
             Perigo Quente <span class="numero">-15°C</span>
           </div>
+        </div>
 
       </div>
     </div>
+
   </body>
 </html>
 

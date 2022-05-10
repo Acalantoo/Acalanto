@@ -1,6 +1,39 @@
 body {
   margin: 0;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6c5eff;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3a3383;
+}
+
+.btn {
+  font-family: Bahnschrift;
+  background-color: #6c5eff;
+  color: rgb(210, 180, 227);
+  height: 5%;
+  width: 40%;
+  font-size: 19px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+
+  transition: color 0.01s, background-color 0.01s, font-weight 0.01s,
+    border-bottom 0.05s;
+}
+
+.btn:hover {
+  color: white;
+  font-weight: 1000;
+  border-bottom: #1e0f77 solid 5px;
+}
 
 /* Inicio Header*/
 
@@ -8,10 +41,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #6c5eff;
+  background-color: #3a3383;
   height: 100vh;
-  width: 20%;
+  width: 18%;
   position: fixed;
+}
+
+.agora{
+  font-weight: 1000;
+  color: #ffffff;
+}
+
+hr{
+  width: 100%;
 }
 
 .card_logo {
@@ -24,7 +66,7 @@ body {
 
 h2 a {
   text-decoration: none;
-  color: #3a3383;
+  color: #6c5eff;
   font-family: clarendon Blk Bt Black;
   font-size: 35px;
 }
@@ -42,7 +84,7 @@ h2 a {
   height: 30%;
   width: 70%;
   border-radius: 20px;
-  background-color: #3a3383;
+  background-color: #6c5eff;
   list-style: none;
 }
 
@@ -51,7 +93,7 @@ h2 a {
   height: 100px;
   background-color: white;
   border-radius: 90px;
-  border: #6c5eff solid 10px;
+  border: #3a3383 solid 10px;
 }
 
 .navbar {
@@ -68,31 +110,38 @@ h2 a {
 
 li a {
   text-decoration: none;
-  color: white;
+  color: #6c5eff;
   font-family: Bahnschrift;
   font-size: 20px;
 }
 
 /* Fim Header*/
 
-/* Inicio Meus Refrigeradores*/
+/* Inicio Meus Refrigeradores ////////////////////////////////////////////////////////*/
 
 .banner .container {
   margin: 0;
-  padding: 0%;
+  padding-right: 1%;
   display: flex;
   height: 100vh;
-  width: 80%;
+  width: 82%;
   float: right;
-  background-color: #dbdbdb;
+  align-items: center;
+  /* background-color: #efefef; */
+  background-color: #c2c2c2;
 }
 
 .refrigeradores {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 70%;
-  height: 100vh;
+  align-items: center;
+  margin: 5%;
+  width: 90%;
+  height: 90%;
+  /* background-color: #c2c2c2; */
+  background-color: #efefef;
+  border-radius: 20px;
 }
 
 .barra {
@@ -101,11 +150,11 @@ li a {
 }
 
 .card_refri {
-  height: 15%;
-  width: 17%;
+  height: 20%;
+  width: 20%;
   border-radius: 20px;
   padding: 0px 10px 20px 10px;
-  background-color: #3a3383;
+  background-color: #3210ac;
   font-family: Bahnschrift;
   color: white;
 }
@@ -124,10 +173,11 @@ li a {
   border-radius: 100px;
 }
 
-.grafico {
+.card_grafico {
   align-items: center;
-  height: 60vh;
-  width: 150vh;
+  justify-content: center;
+  height: 70%;
+  width: 80%;
 }
 
 .card_metricas {
@@ -135,8 +185,8 @@ li a {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 90vh;
-  width: 10%;
+  height: 95%;
+  width: 15%;
   border-radius: 20px;
   background-color: #6c5eff;
 }
@@ -154,7 +204,7 @@ li a {
   width: 80%;
   color: white;
   font-family: Bahnschrift;
-  font-size: 13px;
+  font-size: 15px;
   border-radius: 15px;
 }
 
@@ -236,7 +286,7 @@ li a {
   width: 80%;
 }
 
-.btn {
+/* .btn {
   font-family: Bahnschrift;
   background-color: #6c5eff;
   color: white;
@@ -248,7 +298,7 @@ li a {
   cursor: pointer;
   border: 5px solid white;
   margin-bottom: 10px;
-}
+} */
 input {
   width: 99%;
   border: 0;
