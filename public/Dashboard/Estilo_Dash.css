@@ -415,6 +415,7 @@ select{
   align-items: center;
   justify-content: center;
   background-color: #c2c2c2;
+  border: 2px solid gold;
 }
 
 .todos {
@@ -442,12 +443,28 @@ select{
   flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 55px;
 }
 
 .grafico .sub_grafico {
   height: 90%;
-  width: 48%;
+  width: 70%;
+  /* border: 2px solid  black; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2em #1c0a5a;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
-
+.grafico:hover,
+.grafico:active {
+  font-size: 130%;
+}
+#grafico_rosca{
+  margin-top: 20px;
+  height: 30%;
+  width: 45%;
+}
