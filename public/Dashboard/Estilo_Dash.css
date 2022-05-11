@@ -415,7 +415,6 @@ select{
   align-items: center;
   justify-content: center;
   background-color: #c2c2c2;
-  border: 2px solid gold;
 }
 
 .todos {
@@ -446,6 +445,7 @@ select{
   justify-content: center;
   align-items: center;
   margin-bottom: 55px;
+  font-family: Bahnschrift;
 }
 
 .grafico .sub_grafico {
