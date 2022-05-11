@@ -449,7 +449,7 @@ select{
 }
 
 .grafico .sub_grafico {
-  height: 90%;
+  height: 80%;
   width: 70%;
   /* border: 2px solid  black; */
   display: flex;
@@ -459,10 +459,7 @@ select{
   margin-bottom: 20px;
   border-radius: 10px;
 }
-.grafico:hover,
-.grafico:active {
-  font-size: 130%;
-}
+
 #grafico_rosca{
   margin-top: 20px;
   height: 30%;
