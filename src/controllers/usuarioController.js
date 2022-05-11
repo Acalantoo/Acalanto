@@ -33,7 +33,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -71,25 +71,25 @@ function cadastrar(req, res) {
     var estadoEmpresa = req.body.estadoServer;
     var complementoEmpresa = req.body.complementoServer;
     var telefoneEmpresa = req.body.telefoneServer;
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nomeEmpresa, cnpjEmpresa, logradouroEmpresa, bairroEmpresa, cepEmpresa,
-            cidadeEmpresa, estadoEmpresa, complementoEmpresa, telefoneEmpresa)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrar(nomeEmpresa, cnpjEmpresa, logradouroEmpresa, bairroEmpresa, cepEmpresa,
+        cidadeEmpresa, estadoEmpresa, complementoEmpresa, telefoneEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 function cadastrarUsuario(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -98,50 +98,50 @@ function cadastrarUsuario(req, res) {
     var emailUsuario = req.body.emailUsuarioServer;
     var senhaUsuario = req.body.senhaUsuarioServer;
     var empresaUsuario = req.body.empresaUsuarioServer;
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, empresaUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
 
-    function cadastrarUsuarioNovoUsuario(req, res) {
-        // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-        var nomeUsuario = req.body.nomeUsuarioServer;
-        var sobrenomeUsuario = req.body.sobrenomeUsuarioServer;
-        var emailUsuario = req.body.emailUsuarioServer;
-        var senhaUsuario = req.body.senhaUsuarioServer;
-        var empresaUsuario = req.body.empresaUsuarioServer;
-            
-            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-            usuarioModel.cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, empresaUsuario)
-                .then(
-                    function (resultado) {
-                        res.json(resultado);
-                    }
-                ).catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log(
-                            "\nHouve um erro ao realizar o cadastro! Erro: ",
-                            erro.sqlMessage
-                        );
-                        res.status(500).json(erro.sqlMessage);
-                    }
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, empresaUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
                 );
-        }
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function cadastrarUsuarioNovoUsuario(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeUsuario = req.body.nomeUsuarioServer;
+    var sobrenomeUsuario = req.body.sobrenomeUsuarioServer;
+    var emailUsuario = req.body.emailUsuarioServer;
+    var senhaUsuario = req.body.senhaUsuarioServer;
+    var empresaUsuario = req.body.empresaUsuarioServer;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, empresaUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
     entrar,

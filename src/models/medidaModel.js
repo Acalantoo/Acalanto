@@ -13,11 +13,18 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
-    instrucaoSql = `select top 1 temperaturaAtual
-                    from Registros where fkSensor = ${idAquario} 
-                    order by idRegistros desc`;
+function buscarMedidasEmTempoReal(idSensor) {
+    instrucaoSql = `select top 1 temperaturaAtual from registros where
+    fkSensor = ${idSensor};`;
 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function autenticarRefrigerador(empresa) {
+    instrucaoSql = `select idSensor from sensor join refrigerador on fkRefrigerador = idRefrigerador
+    where fkEmpresa = ${empresa};`;
+    
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -25,5 +32,6 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 module.exports = {
     buscarUltimasMedidas,
+    autenticarRefrigerador,
     buscarMedidasEmTempoReal
 }

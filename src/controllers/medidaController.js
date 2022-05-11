@@ -24,11 +24,30 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var idSensor = req.params.idSensor;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idSensor).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function autenticarRefrigerador(req, res) {
+
+    var empresa = req.params.empresa;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.autenticarRefrigerador(empresa).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -43,6 +62,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
+    autenticarRefrigerador,
     buscarMedidasEmTempoReal
 
 }
