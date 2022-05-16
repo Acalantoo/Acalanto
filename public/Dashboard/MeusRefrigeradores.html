@@ -43,9 +43,6 @@
         <div class="divisao"></div>
       </ul>
       <button onclick="limparSessao()" class="btn">Sair</button>
-      <!-- <button onclick="obterDadosGrafico(sessionStorage.FK_SENSOR1), obterDadosGrafico(sessionStorage.FK_SENSOR2), 
-      obterDadosGrafico(sessionStorage.FK_SENSOR3), obterDadosGrafico(sessionStorage.FK_SENSOR4)" 
-      class="btn">Teste</button> -->
     </div>
   </div>
 
@@ -124,64 +121,6 @@
 
 </html>
 
-<!-- <script>
-  const labels = [
-    "1:00am",
-    "6:00am",
-    "9:00am",
-    "12:00",
-    "01:00pm",
-    "04:00pm",
-    "07:00pm",
-    "10:00pm",
-    "00:00pm",
-  ];
-
-  const data = {
-    labels: labels,
-
-    datasets: [
-      {
-        label: "Refrigerador 1",
-        backgroundColor: "red",
-        borderColor: "red",
-        data: [],
-      },
-      {
-        label: "Refrigerador 2",
-        backgroundColor: "blue",
-        borderColor: "blue",
-        data: [],
-      },
-      {
-        label: "Refrigerador 3",
-        backgroundColor: "green",
-        borderColor: "green",
-        data: [],
-      },
-      {
-        label: "Refrigerador 4",
-        backgroundColor: "purple",
-        borderColor: "purple",
-        data: [],
-      },
-    ],
-  };
-
-  const config = {
-    type: "line",
-    data: data,
-    options: {},
-  };
-</script>
-
-<script>
-  const Chart_meus_refrigeradores = new Chart(
-    document.getElementById("Chart_meus_refrigeradores"),
-    config
-  );
-</script> -->
-
 <script>
 
   function atualizacaoPeriodica() {
@@ -190,16 +129,7 @@
     obterdados(sessionStorage.FK_SENSOR3);
     obterdados(sessionStorage.FK_SENSOR4);
 
-    function sendData() {
-      var http = new XMLHttpRequest();
-      http.open('POST', 'http://localhost:3000/api/sendData', false);
-      http.send(null);
-    }
-
-    setInterval(() => {
-      sendData();
-    }, 2000);
-    setTimeout(atualizacaoPeriodica, 5000);
+    setTimeout(atualizacaoPeriodica, 2000);
   }
 
   function obterdados(idSensor) {
@@ -242,10 +172,12 @@
     if (temperatura >= limites.muito_quente) {
       classe_temperatura = 'card_refri I';
       console.log("caiu no 1")
+      window.alert("Refrigerador está completamente congelado");
     }
     else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
       classe_temperatura = 'card_refri II';
       console.log("caiu no 2")
+      window.alert("Refrigerador está ficando muito frio");
     }
     else if (temperatura < limites.quente && temperatura > limites.frio) {
       classe_temperatura = 'card_refri III';
@@ -254,10 +186,12 @@
     else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
       classe_temperatura = 'card_refri IIII';
       console.log("caiu no 4")
+      window.alert("Refrigerador está ficando quente");
     }
     else if (temperatura <= limites.muito_frio) {
       classe_temperatura = 'card_refri IIIII';
       console.log("caiu no 5")
+      window.alert("Refrigerador está completamente quente");
     }
 
     var card;
@@ -322,8 +256,6 @@
 
   let proximaAtualizacao;
 
-  //verificar_autenticacao();
-
   // altere aqui como os dados serão exibidos
   // e como são recuperados do BackEnd
   function obterDadosGrafico(idSensor) {
@@ -386,7 +318,7 @@
               stacked: false,
               title: {
                   display: true,
-                  text: `Histórico recente de temperatura do refrigerador ${idSensor}`
+                  text: `Histórico recente de temperatura`
               },
               scales: {
                   yAxes: [{
@@ -403,16 +335,6 @@
               }
           }
       });
-
-      function sendData() {
-    var http = new XMLHttpRequest();
-    http.open('POST', 'http://localhost:3000/api/sendData', false);
-    http.send(null);
-  }
-
-      setInterval(() => {
-    sendData();
-  }, 2000);
 
       //Atualiza os dados de 5 em 5 segundos
       setTimeout(() => atualizarGrafico(idSensor, dados), 2000);

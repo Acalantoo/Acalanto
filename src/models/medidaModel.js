@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function buscarUltimasMedidas(idSensor, limite_linhas) {
-    instrucaoSql = `select top ${limite_linhas} temperaturaAtual, dtHora, FORMAT(dtHora,'%H:%m:%s') 
+    instrucaoSql = `select top ${limite_linhas} temperaturaAtual, dtHora, CONVERT(varchar, dtHora, 108)
                     as momento_grafico from registro
                     where fkSensor = ${idSensor}
                     order by idRegistro desc`;
