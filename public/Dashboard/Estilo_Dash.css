@@ -175,7 +175,7 @@ li a {
   background-color: #6c5eff;
   font-family: Bahnschrift;
   color: white;
-
+  cursor: pointer;
   transition: background-color 0.01s, font-size 0.01s;
 }
 
