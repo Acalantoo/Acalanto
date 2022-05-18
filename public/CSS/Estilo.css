@@ -48,7 +48,8 @@ hr {
 select {
   border: 0;
   font-family: Bahnschrift;
-  font-size: 20px;
+  font-size: 15px;
+  text-align: center;
   border-radius: 30px;
   height: 50px;
   background-color: #6c5eff;
@@ -134,7 +135,7 @@ html {
 /* Código relacionado ao header */
 
 .header {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   /* width: 90%; */
 }
@@ -284,6 +285,7 @@ b {
   width: 99%;
   border: 0;
   border-bottom: 2px solid rgb(59, 58, 58);
+  background-color: transparent;
   outline: none;
   /* Remove as bordas ao clicar na input */
   min-width: 180px;
@@ -445,7 +447,24 @@ b {
 
 /* Comeco Do login e cadastro*/
 
-.container .card_setinha_foto {
+.banner_log_cad{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(200deg, #1e0f77, #3a3383, #6c5eff);
+  width: 100vw;
+  height: 100vh;
+}
+
+.banner_log_cad .container_log_cad{
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 95%;
+  width: 80%;
+}
+
+.container_log_cad .card_setinha_foto {
   display: flex;
   height: 11%;
   width: 5%;
@@ -453,7 +472,7 @@ b {
   position: absolute;
 }
 
-.container .card_foto {
+.container_log_cad .card_foto {
   display: flex;
   height: 100%;
   width: 50%;
@@ -462,18 +481,18 @@ b {
 .card_foto img {
   height: 100%;
   width: 100%;
-  border-top-right-radius: 10%;
-  border-bottom-right-radius: 10%;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
-.container .card_login {
+.container_log_cad .card_login {
   display: flex;
   height: 100%;
   width: 50%;
   flex-direction: column;
 }
 
-.container .card_cadastro {
+.container_log_cad .card_cadastro {
   display: flex;
   height: 100%;
   width: 50%;
@@ -534,9 +553,12 @@ b {
   display: flexbox;
   flex-direction: column;
   justify-content: center;
+  background-color: #efefef;
   color: #3a3383;
   font-size: 20px;
   overflow-y: scroll;
+  border-radius: 10px;
+  padding: 3%;
 }
 
 .card_login .botoes {
@@ -576,7 +598,7 @@ b {
   cursor: pointer;
 }
 
-.card_cadastro .botoes .btn_Solicitar {
+/* .card_cadastro .botoes .btn_Solicitar {
   font-family: Bahnschrift;
   font-size: 20px;
   background-color: white;
@@ -598,7 +620,7 @@ b {
   border-radius: 15px;
   border: 0;
   cursor: pointer;
-}
+} */
 
 /* Fim do Login */
 
@@ -720,7 +742,7 @@ body {
 }
 
 .card_titulo .titulo {
-  font-size: 150px;
+  font-size: 24vh;
   font-family: "Orelega One", cursive;
   margin-left: 2%;
 }
@@ -737,18 +759,16 @@ body {
   flex-direction: column;
   justify-content: center;
   color: #6c5eff;
-  height: 650px;
-  width: 55%;
+  height: 100vh;
+  width: 50vw;
   padding-top: 4%;
-}
-
-.img_home {
-  width: 45%;
+  padding-left: 3%;
 }
 
 .img_home img {
   height: 100%;
-  width: 100%;
+  width: 50vw;
+  object-fit: cover;
 }
 
 .buttons {
