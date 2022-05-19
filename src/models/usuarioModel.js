@@ -26,7 +26,7 @@ function cadastrar(nomeEmpresa, cnpjEmpresa, logradouroEmpresa, bairroEmpresa, c
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    INSERT INTO empresa VALUES (null, '${nomeEmpresa}', '${cnpjEmpresa}', '${cepEmpresa}',
+    INSERT INTO empresa (nomeEmpresa, cnpj, cep, estado, cidade, bairro, logradouro, complemento, telefone_fixo) VALUES ('${nomeEmpresa}', '${cnpjEmpresa}', '${cepEmpresa}',
     '${estadoEmpresa}',  '${cidadeEmpresa}', '${bairroEmpresa}', '${logradouroEmpresa}',
     '${complementoEmpresa}', '${telefoneEmpresa}');
     `;
@@ -47,9 +47,23 @@ function cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsua
     return database.executar(instrucao);
 }
 
+function cadastrarRefrigerador(marcaRefrigerador, tipoRefrigerador, localizacaoRefrigerador, chaveUsuario, chaveEmpresa) {
+    //console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    INSERT INTO refrigerador (marcaRefrigerador, tipoRefrigerador, localizacao, fkUsuario, fkEmpresa) VALUES 
+    ('${marcaRefrigerador}', '${tipoRefrigerador}', '${localizacaoRefrigerador}', ${chaveUsuario}, ${chaveEmpresa});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarUsuario,
+    cadastrarRefrigerador,
     listar,
 };

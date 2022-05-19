@@ -117,6 +117,32 @@ function cadastrarUsuario(req, res) {
         );
 }
 
+function cadastrarRefrigerador(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var marcaRefrigerador = req.body.marcaRefrigeradorServer;
+    var tipoRefrigerador = req.body.tipoRefrigeradorServer;
+    var localizacaoRefrigerador = req.body.localizacaoRefrigeradorServer;
+    var chaveUsuario = req.body.chaveUsuarioServer;
+    var chaveEmpresa = req.body.chaveEmpresaServer;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarRefrigerador(marcaRefrigerador, tipoRefrigerador, localizacaoRefrigerador, chaveUsuario, chaveEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function cadastrarUsuarioNovoUsuario(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeUsuario = req.body.nomeUsuarioServer;
@@ -147,6 +173,7 @@ module.exports = {
     entrar,
     cadastrar,
     cadastrarUsuario,
+    cadastrarRefrigerador,
     cadastrarUsuarioNovoUsuario,
     listar,
     testar
