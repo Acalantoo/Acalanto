@@ -24,6 +24,10 @@ router.post("/cadastrarRefrigerador", function (req, res) {
     usuarioController.cadastrarRefrigerador(req, res);
 })
 
+router.post("/cadastrarSensor", function (req, res) {
+    usuarioController.cadastrarSensor(req, res);
+})
+
 router.post("/cadastrarUsuarioNovoUsuario", function (req, res) {
     usuarioController.cadastrarUsuarioNovoUsuario(req, res);
 })

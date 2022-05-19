@@ -137,6 +137,18 @@
 
                     <button onclick="cadastrarRefrigerador()" class="btn">Cadastrar Refrigerador</button>
 
+                    <label>Sensor</label>
+                    <h4>Nome do Sensor</h4>
+                    <input id="input_nome_sensor">
+
+                    <h4>Tipo do Sensor</h4>
+                    <input id="input_tipo_sensor">
+
+                    <h4>Chave Refrigerador</h4>
+                    <input id="input_chave_refrigerador">
+
+                    <button onclick="cadastrarSensor()" class="btn">Cadastrar Sensor</button>
+
                 </form>
             </div>
         </div>
@@ -291,11 +303,9 @@
 
             var marcaRefrigerador = input_marca_refrigerador.value
             var tipoRefrigerador = input_tipo_refrigerador.value
-            var localizacaoRefrigerador = input_localizacao_refrigerador
+            var localizacaoRefrigerador = input_localizacao_refrigerador.value
             var chaveUsuario = Number(input_chave_usuario.value)
             var chaveEmpresa = Number(input_chave_empresa.value)
-
-
 
             fetch("/usuarios/cadastrarRefrigerador", {
                     method: "POST",
@@ -326,4 +336,38 @@
                     console.log(`#ERRO: ${resposta}`);
                 });
             }
+
+        function cadastrarSensor() {
+
+            var nomeSensor = input_nome_sensor.value
+            var tipoSensor = input_tipo_sensor.value
+            var chaveRefrigerador = Number(input_chave_refrigerador.value)
+
+            fetch("/usuarios/cadastrarSensor", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeSensorServer: nomeSensor,
+                        tipoSensorServer: tipoSensor,
+                        chaveRefrigeradorServer: chaveRefrigerador,
+                    })
+                }
+                ).then(function (resposta) {
+    
+                    console.log("resposta: ", resposta);
+    
+                    if (resposta.ok) {
+                        alert('cadastro realizado');
+                    } else {
+                        alert('Não foi possível realizar cadastro, o email atual já está cadastrado!');
+                        throw ("Houve um erro ao tentar realizar o cadastro!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        }
     </script>
