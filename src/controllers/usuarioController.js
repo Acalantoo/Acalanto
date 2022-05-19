@@ -145,8 +145,9 @@ function cadastrarRefrigerador(req, res) {
 
 function cadastrarSensor(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var tipoSensor = req.body.tipoSensorServer;
+    
     var nomeSensor = req.body.nomeSensorServer;
+    var tipoSensor = req.body.tipoSensorServer;
     var chaveRefrigerador = req.body.chaveRefrigeradorServer;
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js

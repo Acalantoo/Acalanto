@@ -66,7 +66,7 @@ function cadastrarSensor(nomeSensor, tipoSensor, chaveRefrigerador) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    INSERT INTO refrigerador (nomeSensor, tipoSensor, fkRefrigerador) VALUES 
+    INSERT INTO sensor (nomeSensor, tipoSensor, fkRefrigerador) VALUES 
     ('${nomeSensor}', '${tipoSensor}', ${chaveRefrigerador});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
