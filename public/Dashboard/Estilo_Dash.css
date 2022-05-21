@@ -465,3 +465,7 @@ select{
   height: 30%;
   width: 45%;
 }
+
+#formularioHeader{
+  display: none;
+}
