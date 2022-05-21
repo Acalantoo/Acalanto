@@ -49,12 +49,12 @@ function simular_prejuizo() {
 
 /* Funções da página de cadastro */
 
-function enviar_solicitacao(){
+function enviar_solicitacao() {
     window.onbeforeunload = () => {
-        for(const form of document.getElementsByTagName('form')) {
-          form.reset();
+        for (const form of document.getElementsByTagName('form')) {
+            form.reset();
         }
-      }
+    }
 }
 
 /* Término das funções da página cadastro */
@@ -70,12 +70,16 @@ function validarSessao() {
 
     if (email != null && nome != null && idUsuario != null && empresa != null) {
         perfil.innerHTML = `Olá, ${nome}`
+        if (empresa == 1) {
+            formularioHeader.style.display = `flex`
+        }
     } else {
         window.location = "../Login.html";
     }
 }
 
 function limparSessao() {
+    formularioHeader.style.display = `none`
     sessionStorage.clear();
     window.location = "../Login.html";
 }
