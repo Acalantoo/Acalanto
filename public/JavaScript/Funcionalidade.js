@@ -85,3 +85,34 @@ function limparSessao() {
 }
 
 /* Término das funções de sessão */
+
+// PAGINA SUPORTE FUNÇOES 
+
+function verificar() {
+    var nome = input_nome.value
+    var empresa = input_empresa.value
+    var email = input_email.value
+    var problema = input_problema.value
+
+    if (nome == "" || empresa == "" || email == "" || problema == "") {
+        alert("Por favor preencha os campos")
+
+    } else if (nome.length < 3 || nome.length > 90) {
+        alert("O nome deve conter entre 4 até 90 caracteres ")
+
+    } else if (empresa.length < 3 || empresa.length > 90) {
+        alert("O nome da Empresa deve conter entre 4 até 90 caracteres ")
+
+    } else if(email.indexOf('@') <= 0 || email.indexOf('.com') == -1
+        || email.indexOf('.com') < email.indexOf('@')){
+
+      alert("Email inválido!!")
+    }
+    else if (problema.length > 15) {
+        alert("Explique melhor seu problema ")
+
+    } else{
+        alert("Problema reportado, em breve entraremos em contato")
+        window.location.href = "Index.html";
+    }
+}

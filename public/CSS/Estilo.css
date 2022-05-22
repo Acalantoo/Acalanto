@@ -548,7 +548,7 @@ b {
 }
 
 .card_cadastro .label {
-  height: 350px;
+  height: 250px;
   width: 80%;
   display: flexbox;
   flex-direction: column;
@@ -955,4 +955,12 @@ body {
 
 .banner_formulario .container .label .btn {
   width: 30%;
+}
+
+/*  ////////////////////////////////////////////////////////////////////////////////////*/
+
+/* SUPORTE */
+
+#label_suporte{
+  height: 350px;
 }
