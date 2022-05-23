@@ -964,3 +964,14 @@ body {
 #label_suporte{
   height: 350px;
 }
+#botao-suporte2{
+  display: none;
+}
+
+.card_login #botoes{
+  /* border: 2px solid gold; */
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content:end;
+} 

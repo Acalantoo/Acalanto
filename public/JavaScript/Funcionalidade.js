@@ -108,11 +108,15 @@ function verificar() {
 
       alert("Email inválido!!")
     }
-    else if (problema.length > 15) {
+    else if (problema.length < 15) {
         alert("Explique melhor seu problema ")
 
     } else{
-        alert("Problema reportado, em breve entraremos em contato")
-        window.location.href = "Index.html";
+        
+        botoes.innerHTML =`
+        <button onclick="go_index()" class="btn_2" id="botao-suporte" type="submit" style="display:flex"> Reportar  </button> 
+        <button onclick="verificar()" class="btn_2" id="botao-suporte2" type="button" style="display:none"> Verificar  </button>
+        `
+                
     }
 }

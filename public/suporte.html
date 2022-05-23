@@ -29,34 +29,35 @@
                 <img src="./img/suporte.webp">
             </div>
 
-            <div class="card_login" action="https://formspree.io/f/mayvvyqn" method="POST">
-                
+            <div class="card_login">
+                <form action="https://formspree.io/f/mayvvyqn" method="POST">
                 <div class="label" id="label_suporte">
                     <h3> Suporte</h3>
                     
                     <h4> Nome: </h4>
-                    <input id="input_nome" type="text">
+                    <input id="input_nome" type="text" name="name">
                     <div class="aviso" id="aviso1"></div>
 
                     <h4> Empresa : </h4>
-                    <input id="input_empresa" type="text">
+                    <input id="input_empresa" type="text" name="empresa">
                     <div class="aviso" id="aviso1"></div>
 
                     <h4> Email: </h4>
-                    <input id="input_email" type="text">
+                    <input id="input_email" type="text" name="email">
                     <div class="aviso" id="aviso1"></div>
 
                  
                    <h4>Comente sobre seu problema:</h4>
-                   <input id="input_problema" type="text">
+                   <input id="input_problema" type="text" name="message">
                    <div class="aviso" id="aviso1"></div>
 
                 </div>
-
-                <div class="botoes">
-                    <button onclick="verificar()" class="btn_2" id="botao-suporte" type="submit"> Reportar  </button>
+             <div class="botoes" id="botoes">
+                <button onclick="verificar()" class="btn_2" id="botao-suporte" type="button"> Verificar  </button>
+                <button onclick="go_index()" class="btn_2" id="botao-suporte2" type="submit"> Reportar  </button>
+                </form>
                 </div>
-
+                
             </div>
         </div>
     </div>
