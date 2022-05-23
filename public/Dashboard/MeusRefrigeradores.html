@@ -160,6 +160,11 @@ autenticarRefrigerador(sessionStorage.FK_EMPRESA), atualizacaoPeriodica()">
 
   }
 
+  var contadorRefrigerador1 = 0;
+  var contadorRefrigerador2 = 0;
+  var contadorRefrigerador3 = 0;
+  var contadorRefrigerador4 = 0;
+
   function alertar(temperatura, idSensor) {
     var limites = {
       muito_quente: 25,
@@ -173,27 +178,118 @@ autenticarRefrigerador(sessionStorage.FK_EMPRESA), atualizacaoPeriodica()">
 
     if (temperatura >= limites.muito_quente) {
       classe_temperatura = 'card_refri I';
-      console.log("caiu no 1")
       window.alert("Refrigerador está completamente congelado");
+      if(idSensor == sessionStorage.FK_SENSOR1){
+        contadorRefrigerador1++;
+        if(contadorRefrigerador1 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR2){
+        contadorRefrigerador2++;
+        if(contadorRefrigerador2 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR3){
+        contadorRefrigerador3++;
+        if(contadorRefrigerador3 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else {
+        contadorRefrigerador4++;
+        if(contadorRefrigerador4 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
     }
     else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
       classe_temperatura = 'card_refri II';
-      console.log("caiu no 2")
       window.alert("Refrigerador está ficando muito frio");
+      if(idSensor == sessionStorage.FK_SENSOR1){
+        contadorRefrigerador1++;
+        if(contadorRefrigerador1 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR2){
+        contadorRefrigerador2++;
+        if(contadorRefrigerador2 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR3){
+        contadorRefrigerador3++;
+        if(contadorRefrigerador3 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else {
+        contadorRefrigerador4++;
+        if(contadorRefrigerador4 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
     }
     else if (temperatura < limites.quente && temperatura > limites.frio) {
       classe_temperatura = 'card_refri III';
-      console.log("caiu no 3")
     }
     else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
       classe_temperatura = 'card_refri IIII';
-      console.log("caiu no 4")
       window.alert("Refrigerador está ficando quente");
+      if(idSensor == sessionStorage.FK_SENSOR1){
+        contadorRefrigerador1++;
+        if(contadorRefrigerador1 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR2){
+        contadorRefrigerador2++;
+        if(contadorRefrigerador2 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR3){
+        contadorRefrigerador3++;
+        if(contadorRefrigerador3 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else {
+        contadorRefrigerador4++;
+        if(contadorRefrigerador4 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
     }
     else if (temperatura <= limites.muito_frio) {
       classe_temperatura = 'card_refri IIIII';
-      console.log("caiu no 5")
       window.alert("Refrigerador está completamente quente");
+      if(idSensor == sessionStorage.FK_SENSOR1){
+        contadorRefrigerador1++;
+        if(contadorRefrigerador1 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR2){
+        contadorRefrigerador2++;
+        if(contadorRefrigerador2 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else if(idSensor == sessionStorage.FK_SENSOR3){
+        contadorRefrigerador3++;
+        if(contadorRefrigerador3 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
+      else {
+        contadorRefrigerador4++;
+        if(contadorRefrigerador4 >= 10){
+          alert("Refrigerador com defeito")
+        }
+      }
     }
 
     var card;
