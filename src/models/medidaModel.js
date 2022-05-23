@@ -17,9 +17,16 @@ function buscarMedidasEmTempoReal(idSensor) {
     return database.executar(instrucaoSql);
 }
 
-function autenticarRefrigerador(empresa) {
-    instrucaoSql = `select idSensor from sensor join refrigerador on fkRefrigerador = idRefrigerador
+function autenticarSensor(empresa) {
+    instrucaoSql = `select TOP 4 idSensor from sensor join refrigerador on fkRefrigerador = idRefrigerador
     where fkEmpresa = ${empresa};`;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function autenticarRefrigerador(empresa) {
+    instrucaoSql = `select TOP 4 idRefrigerador from refrigerador where fkEmpresa = ${empresa};`;
     
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -28,6 +35,7 @@ function autenticarRefrigerador(empresa) {
 
 module.exports = {
     buscarUltimasMedidas,
+    autenticarSensor,
     autenticarRefrigerador,
     buscarMedidasEmTempoReal
 }

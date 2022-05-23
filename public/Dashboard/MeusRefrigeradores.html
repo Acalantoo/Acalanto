@@ -17,7 +17,8 @@
 
 </head>
 
-<body onload="validarSessao(), autenticarRefrigerador(sessionStorage.FK_EMPRESA), atualizacaoPeriodica()">
+<body onload="validarSessao(), autenticarSensor(sessionStorage.FK_EMPRESA),
+autenticarRefrigerador(sessionStorage.FK_EMPRESA), atualizacaoPeriodica()">
 
   <div class="header">
     <div class="container">
@@ -220,7 +221,7 @@
 
 <script>
   
-  function autenticarRefrigerador(empresa) {
+  function autenticarSensor(empresa) {
     fetch(`/medidas/sensor/${empresa}`)
       .then(resposta => {
 
@@ -237,6 +238,37 @@
             sessionStorage.FK_SENSOR2 = resposta[1].idSensor;
             sessionStorage.FK_SENSOR3 = resposta[2].idSensor;
             sessionStorage.FK_SENSOR4 = resposta[3].idSensor;
+
+          });
+        } else {
+
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+      });
+
+  }
+
+    
+  function autenticarRefrigerador(empresa) {
+    fetch(`/medidas/refrigerador/${empresa}`)
+      .then(resposta => {
+
+        if (resposta.ok) {
+          resposta.json().then(resposta => {
+
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            var dados = {
+              sensor: resposta[0].idRefrigerador,
+            }
+
+            sessionStorage.FK_REFRIGERADOR1 = resposta[0].idRefrigerador;
+            sessionStorage.FK_REFRIGERADOR2 = resposta[1].idRefrigerador;
+            sessionStorage.FK_REFRIGERADOR3 = resposta[2].idRefrigerador;
+            sessionStorage.FK_REFRIGERADOR4 = resposta[3].idRefrigerador;
 
           });
         } else {

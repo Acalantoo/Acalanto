@@ -194,6 +194,36 @@ function cadastrarUsuarioNovoUsuario(req, res) {
         );
 }
 
+function cadastrarRelatorio(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    
+    var qtd_estoque = req.body.qtd_estoqueServer;
+    var qtd_doacao = req.body.qtd_doacaoServer;
+    var qtd_desperdicio = req.body.qtd_desperdicioServer;
+    var observacao = req.body.observacaoServer;
+    var fkUsuario = req.body.fkUsuarioServer;
+    var fkEmpresa = req.body.fkEmpresaServer;
+    var fkRefrigerador = req.body.fkRefrigeradorServer;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarRelatorio(qtd_estoque, qtd_doacao, qtd_desperdicio, observacao,
+        fkUsuario, fkEmpresa, fkRefrigerador)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -201,6 +231,7 @@ module.exports = {
     cadastrarRefrigerador,
     cadastrarSensor,
     cadastrarUsuarioNovoUsuario,
+    cadastrarRelatorio,
     listar,
     testar
 }

@@ -32,6 +32,10 @@ router.post("/cadastrarUsuarioNovoUsuario", function (req, res) {
     usuarioController.cadastrarUsuarioNovoUsuario(req, res);
 })
 
+router.post("/cadastrarRelatorio", function (req, res) {
+    usuarioController.cadastrarRelatorio(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

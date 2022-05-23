@@ -12,6 +12,10 @@ router.get("/tempo-real/:idSensor", function (req, res) {
 })
 
 router.get("/sensor/:empresa", function (req, res) {
+    medidaController.autenticarSensor(req, res);
+})
+
+router.get("/refrigerador/:empresa", function (req, res) {
     medidaController.autenticarRefrigerador(req, res);
 })
 

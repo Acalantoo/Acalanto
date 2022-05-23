@@ -47,6 +47,21 @@ function cadastrarUsuario(nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsua
     return database.executar(instrucao);
 }
 
+function cadastrarRelatorio(qtd_estoque, qtd_doacao, qtd_desperdicio, observacao,
+    fkUsuario, fkEmpresa, fkRefrigerador) {
+    //console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    INSERT INTO relatorioDiario (fkUsuario, fkEmpresa, fkRefrigerador, totalLeite, leiteRecebido, leitePerdido, observacao) VALUES 
+    (${fkUsuario}, ${fkEmpresa}, ${fkRefrigerador}, '${qtd_estoque}', '${qtd_doacao}', '${qtd_desperdicio}',
+    '${observacao}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function cadastrarRefrigerador(marcaRefrigerador, tipoRefrigerador, localizacaoRefrigerador, chaveUsuario, chaveEmpresa) {
     //console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
@@ -80,5 +95,6 @@ module.exports = {
     cadastrarUsuario,
     cadastrarRefrigerador,
     cadastrarSensor,
+    cadastrarRelatorio,
     listar,
 };
