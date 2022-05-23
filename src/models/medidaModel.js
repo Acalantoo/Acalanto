@@ -10,7 +10,8 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
 }
 
 function buscarMedidasEmTempoReal(idSensor) {
-    instrucaoSql = `select top 1 temperaturaAtual from registro where
+    instrucaoSql = `select top 1 temperaturaAtual,dtHora, CONVERT(varchar, dtHora, 108)
+    as momento_grafico from registro where
     fkSensor = ${idSensor} order by idRegistro desc;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
