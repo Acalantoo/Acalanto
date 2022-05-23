@@ -95,21 +95,21 @@ function verificar() {
     var problema = input_problema.value
 
     if (nome == "" || empresa == "" || email == "" || problema == "") {
-        alert("Por favor preencha os campos")
+        div_aviso.innerHTML = "Por favor preencha os campos"
 
     } else if (nome.length < 3 || nome.length > 90) {
-        alert("O nome deve conter entre 4 até 90 caracteres ")
+        div_aviso.innerHTML = "O nome deve conter entre 4 até 90 caracteres "
 
     } else if (empresa.length < 3 || empresa.length > 90) {
-        alert("O nome da Empresa deve conter entre 4 até 90 caracteres ")
+        div_aviso.innerHTML = "O nome da Empresa deve conter entre 4 até 90 caracteres "
 
     } else if(email.indexOf('@') <= 0 || email.indexOf('.com') == -1
         || email.indexOf('.com') < email.indexOf('@')){
 
-      alert("Email inválido!!")
+      div_aviso.innerHTML = "Email inválido!!"
     }
     else if (problema.length < 15) {
-        alert("Explique melhor seu problema ")
+        div_aviso.innerHTML = "Explique melhor seu problema "
 
     } else{
         
