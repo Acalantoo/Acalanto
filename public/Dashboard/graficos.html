@@ -57,33 +57,9 @@
                 <div class="grafico">  
                     <h2> Dashboard de Produção  </h2>
                     <div class="sub_grafico">
-                        <h3> Controle de Qualidade </h3>
+                        <h3> Desperdicio de Leite Materno </h3>
                         <canvas id="myChart"></canvas> 
                     </div> <!-- Fechando a div sub-rafico -->
-                    <div class="sub_grafico">
-                        <h3> Cadastro por Mês na plataforma </h3> 
-                        <canvas id="myChart4"> </canvas>
-                    </div> <!-- Fechando a div sub-grafico -->
-                </div> <!-- Fechando a div grafico -->
-              
-              
-                
-                <h2> Dashboard de Doações</h2>
-                <div class="grafico">  
-                    <div class="sub_grafico"> 
-                        <br>
-                        <h3> Quantidade de Desperdicio de Leite </h3>
-                        <canvas id="myChart5"></canvas>
-                    </div> <!-- Fechando a div sub-rafico -->
-                    <div class="sub_grafico"> 
-                        <h3> Estoque de Leite Materno </h3>
-                        <canvas id="myChart2"></canvas>
-                    </div> <!-- Fechando a div sub-rafico -->
-                <div class="sub_grafico" id="grafico_rosca">
-                    <h3> Quantidade de Doações </h3>
-                    <canvas id="myChart3"></canvas>
-                </div> <!-- Fechando a div sub-rafico -->
-            </div ><!-- Fechando a div grafico -->
 
             </div>
 
@@ -96,9 +72,6 @@
 
     //  Primeiro Grafico
     const labels = [
-        '2017',
-        '2018',
-        '2019',
         '2020',
         '2021',
         '2022',
@@ -119,7 +92,7 @@
             borderRadius: 10,
             hoverBorderColor: 'black',
             hoverBorderWidth: 3,
-            data: [83, 75, 70, 67, 60, 55],
+            data: [15, 20, 12],
         }]
     };
 
@@ -139,194 +112,7 @@ type: 'bar',
       }
   }
 };
-    // Segundo Grafico
-    const labels2 = [
-      'Dia 12/05',
-      'Dia 13/05',
-      'Dia 14/05',
-      'Dia 15/05',
-      'Dia 16/05'
-    ];
-
-    const data2 = {
-        labels: labels2,
-        datasets: [{
-            label: [
-                "Hospital 1"
-                ],
-            backgroundColor: [
-                'purple',
-            ],
-            hoverBorderColor: 'black',
-            hoverBorderWidth: 10,
-            data: [20, 35,30, 45,50],
-        },
-      {
-        label: 'Hospital 2',
-        backgroundColor: 'red',
-        // borderColor: 'black',
-        data:  [30, 32, 40, 48,53],
-      },
-      {
-        label: 'Hospital 3',
-        backgroundColor: 'blue',
-        // borderColor: 'black',
-        data:  [10, 25, 28, 32, 40],
-      }
     
-    ]
-    };
-  
-
-    const config2 = {
-
-        type: 'line',
-        data: data2,
-        options: {
-            scales: {
-                x: {
-                    grid: {
-                        offset: true
-                    }
-                }
-            }
-        }
-    };
-
-    // Terceiro Grafico
-    const labels3 = [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Junho' 
-    ];
-
-
-    const data3 = {
-        labels: labels3,
-        datasets: [{
-            label: 'Valor na queda de doação',
-            backgroundColor: [
-            '#da70d6',
-            '#6c5eff',
-            'purple',
-            '#cf70cf',
-            'pink',
-            ],
-            hoverOffset: 50,
-            hoverBorderWidth: 8,
-            borderColor: 'black',
-            data: [15, 30, 50, 25, 9],
-        }
-        ]
-    };
-
-    const config3 = {
-
-        type: 'pie',
-        data: data3,
-        options: {
-            scales: {
-                x: {
-                    grid: {
-                        offset: true
-                    }
-                }
-            }
-        }
-    };
-
-    // QUARTO GRAFICO
-
-    const labels4 = [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Julho',
-    ];
-
-
-
-    const data4 = {
-        labels: labels4,
-
-        datasets: [{
-
-            label: 'Numero de Cadastro',
-            backgroundColor: '#6c5eff',
-            borderColor: 'black',
-            borderRadius: 10,
-            hoverBorderColor: 'black',
-            hoverBorderWidth: 3,
-            data: [6, 10, 5, 3, 10, 15],
-        }]
-    };
-
-
-    const config4 = {
-
-type: 'bar',
-data: data4,
-options: {
-    indexAxis: 'y',
-    scales: {
-        x: {
-            grid: {
-                offset: true
-            }
-        }
-    }
-}
-};
-
-// Quinto GRAFICO
-
-const labels5 = [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Julho',
-    ];
-
-
-
-    const data5 = {
-        labels: labels5,
-
-        datasets: [{
-
-            label: 'Litros',
-            backgroundColor: '#6c5eff',
-            borderColor: 'black',
-            borderRadius: 10,
-            hoverBorderColor: 'black',
-            hoverBorderWidth: 3,
-            data: [6, 10, 5, 3, 10, 15],
-        }]
-    };
-
-
-    const config5 = {
-
-  
-      type: 'bar',
-        data: data5,
-        options: {
-            scales: {
-                x: {
-                    grid: {
-                        offset: true
-                    }
-                }
-            }
-        }
-    };
 
 </script>
 
@@ -335,27 +121,6 @@ const labels5 = [
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
-    );
-    // grafico 2
-    const myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
-    );
-
-    // GRAFICO 3 
-    const myChart3 = new Chart(
-        document.getElementById('myChart3'),
-        config3
-    );
-    // GRAFICO 4
-    const myChart4 = new Chart(
-        document.getElementById('myChart4'),
-        config4
-    );
-    // GRAFICO 5
-    const myChart5 = new Chart(
-        document.getElementById('myChart5'),
-        config5
     );
 
 </script>

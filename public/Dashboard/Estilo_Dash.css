@@ -411,6 +411,7 @@ select{
   /* padding: 1%; */
   display: flex;
   width: 82%;
+  height: 100vh;
   float: right;
   align-items: center;
   justify-content: center;
@@ -422,7 +423,7 @@ select{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 85%;
   height: 90%;
   /* background-color: #c2c2c2; */
   background-color: #efefef;
@@ -460,11 +461,6 @@ select{
   border-radius: 10px;
 }
 
-#grafico_rosca{
-  margin-top: 20px;
-  height: 30%;
-  width: 45%;
-}
 
 #formularioHeader{
   display: none;
